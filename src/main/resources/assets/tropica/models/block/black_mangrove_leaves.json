@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "tropica:block/black_mangrove_leaves"
+  }
+}

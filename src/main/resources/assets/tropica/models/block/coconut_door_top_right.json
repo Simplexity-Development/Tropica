@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top_right",
+  "textures": {
+    "bottom": "tropica:block/coconut_door_bottom",
+    "top": "tropica:block/coconut_door_top"
+  }
+}

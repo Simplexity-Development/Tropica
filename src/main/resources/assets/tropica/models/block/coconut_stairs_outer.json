@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "tropica:block/coconut_planks",
+    "side": "tropica:block/coconut_planks",
+    "top": "tropica:block/coconut_planks"
+  }
+}
