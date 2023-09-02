@@ -44,3 +44,8 @@ the cubic items you see here are simply the item textures for each stage, though
 forgot to mention; coconuts spawn on white sand beaches, which are warm lush alternatives to regular beaches. they will replace them in warm regions
 Image
 white sand beaches keep a similar layout to sparse jungles; there are also occasional lush stripes of grass with flowers and bush
+
+
+# Other notes
+
+`To make your block flammable (that is, can be burned in fire), you may use FlammableBlockRegistry. ` - fabric wiki

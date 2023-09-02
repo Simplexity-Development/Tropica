@@ -1,13 +1,10 @@
 package simplexity.tropica;
 
 import net.fabricmc.api.ModInitializer;
-
-import net.fabricmc.fabric.api.block.v1.FabricBlock;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
@@ -47,20 +44,23 @@ public class Tropica implements ModInitializer {
     public static final BlockSetType BLACK_MANGROVE_BLOCK_SET_TYPE = new BlockSetType("black_mangrove", true, BlockSoundGroup.WOOD, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE, SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON);
     public static final BlockSetType COCONUT_BLOCK_SET_TYPE = new BlockSetType("black_mangrove", true, BlockSoundGroup.WOOD, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE, SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON);
     public static final WoodType COCONUT_WOOD_TYPE = new WoodType("coconut", COCONUT_BLOCK_SET_TYPE);
+    public static final Block COCONUT_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.create().strength(2.0f), COCONUT_WOOD_TYPE);
+    public static final Block COCONUT_SIGN_BLOCK = new SignBlock(FabricBlockSettings.create().strength(1.0f), COCONUT_WOOD_TYPE);
+    public static final Block COCONUT_HANGING_SIGN_BLOCK = new HangingSignBlock(FabricBlockSettings.create().strength(1.0f), COCONUT_WOOD_TYPE);
     public static final WoodType BLACK_MANGROVE_WOOD_TYPE = new WoodType("black_mangrove", BLACK_MANGROVE_BLOCK_SET_TYPE);
+    public static final Block BLACK_MANGROVE_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.create().strength(2.0f), BLACK_MANGROVE_WOOD_TYPE);
+    public static final Block BLACK_MANGROVE_SIGN_BLOCK = new SignBlock(FabricBlockSettings.create().strength(1.0f), BLACK_MANGROVE_WOOD_TYPE);
+    public static final Block BLACK_MANGROVE_HANGING_SIGN_BLOCK = new HangingSignBlock(FabricBlockSettings.create().strength(1.0f), BLACK_MANGROVE_WOOD_TYPE);
     public static final Block BLACK_MANGROVE_DOOR = new DoorBlock(FabricBlockSettings.create().strength(3.0f), BLACK_MANGROVE_BLOCK_SET_TYPE);
     public static final Block BLACK_MANGROVE_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.create().strength(0.5f), BLACK_MANGROVE_BLOCK_SET_TYPE);
     public static final Block BLACK_MANGROVE_BUTTON = new ButtonBlock(FabricBlockSettings.create().strength(0.5f), BLACK_MANGROVE_BLOCK_SET_TYPE, 30, true);
-    public static final Block BLACK_MANGROVE_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.create().strength(2.0f), BLACK_MANGROVE_WOOD_TYPE);
     public static final Block BLACK_MANGROVE_FENCE = new FenceBlock(FabricBlockSettings.create().strength(2.0f));
-    public static final Block BLACK_MANGROVE_SIGN_BLOCK = new SignBlock(FabricBlockSettings.create().strength(1.0f), BLACK_MANGROVE_WOOD_TYPE);
-    public static final Block BLACK_MANGROVE_HANGING_SIGN_BLOCK = new HangingSignBlock(FabricBlockSettings.create().strength(1.0f), BLACK_MANGROVE_WOOD_TYPE);
     public static final Block BLACK_MANGROVE_PLANKS = new Block(FabricBlockSettings.create().strength(2.0f));
     public static final Block BLACK_MANGROVE_KNEES = new Block(FabricBlockSettings.create().strength(0.7f));
     public static final Block BLACK_MANGROVE_LEAVES = new Block(FabricBlockSettings.create().strength(0.2f));
     public static final Block BLACK_MANGROVE_LOG = new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG));
     public static final Block STRIPPED_BLACK_MANGROVE_LOG = new PillarBlock(FabricBlockSettings.create().strength(2.0f));
-    public static final Block STRIPPED_BLACK_MANGROVE_WOOD = new Block(FabricBlockSettings.create().strength(2.0f));
+    public static final Block STRIPPED_BLACK_MANGROVE_WOOD = new PillarBlock(FabricBlockSettings.create().strength(2.0f));
     public static final Block BLACK_MANGROVE_HANGING_PROPAGULE = new Block(FabricBlockSettings.create().strength(0.1f));
     public static final Block BLACK_MANGROVE_PROPAGULE_BLOCK = new Block(FabricBlockSettings.create().strength(0.1f));
     public static final Block BLACK_MANGROVE_TRAPDOOR = new TrapdoorBlock(FabricBlockSettings.create().strength(3.0f), BLACK_MANGROVE_BLOCK_SET_TYPE);
@@ -71,18 +71,15 @@ public class Tropica implements ModInitializer {
     public static final Block COCONUT_DOOR = new DoorBlock(FabricBlockSettings.create().strength(3.0f), COCONUT_BLOCK_SET_TYPE);
     public static final Block COCONUT_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, FabricBlockSettings.create().strength(0.5f), COCONUT_BLOCK_SET_TYPE);
     public static final Block COCONUT_BUTTON = new ButtonBlock(FabricBlockSettings.create().strength(0.5f), COCONUT_BLOCK_SET_TYPE, 30, true);
-    public static final Block COCONUT_FENCE_GATE = new FenceGateBlock(FabricBlockSettings.create().strength(2.0f), COCONUT_WOOD_TYPE);
     public static final Block COCONUT_FENCE = new FenceBlock(FabricBlockSettings.create().strength(2.0f));
-    public static final Block COCONUT_SIGN_BLOCK = new SignBlock(FabricBlockSettings.create().strength(1.0f), COCONUT_WOOD_TYPE);
-    public static final Block COCONUT_HANGING_SIGN_BLOCK = new HangingSignBlock(FabricBlockSettings.create().strength(1.0f), COCONUT_WOOD_TYPE);
     public static final Block COCONUT_PLANKS = new Block(FabricBlockSettings.create().strength(2.0f));
     public static final Block COCONUT_LEAVES = new LeavesBlock(FabricBlockSettings.create().strength(0.2f));
     public static final Block COCONUT_LOG = new PillarBlock(FabricBlockSettings.create().strength(2.0f));
-    public static final Block COCONUT_WOOD = new Block(FabricBlockSettings.create().strength(2.0f));
+    public static final Block COCONUT_WOOD = new PillarBlock(FabricBlockSettings.create().strength(2.0f));
     public static final Block STRIPPED_COCONUT_LOG = new PillarBlock(FabricBlockSettings.create().strength(2.0f));
-    public static final Block STRIPPED_COCONUT_WOOD = new Block(FabricBlockSettings.create().strength(2.0f));
-    public static final Block COCONUT_SHEATH = new Block(FabricBlockSettings.create().strength(1.5f));
-    public static final Block COCONUT_SHEATH_WOOD = new Block(FabricBlockSettings.create().strength(1.5f));
+    public static final Block STRIPPED_COCONUT_WOOD = new PillarBlock(FabricBlockSettings.create().strength(2.0f));
+    public static final Block COCONUT_SHEATH = new PillarBlock(FabricBlockSettings.create().strength(1.5f));
+    public static final Block COCONUT_SHEATH_WOOD = new PillarBlock(FabricBlockSettings.create().strength(1.5f));
     public static final Block COCONUT_SHOOT = new Block(FabricBlockSettings.create().strength(0.0f));
     public static final Block COCONUT_TRAPDOOR = new TrapdoorBlock(FabricBlockSettings.create().strength(2.0f), COCONUT_BLOCK_SET_TYPE);
     public static final Block COCONUT_TUFT = new Block(FabricBlockSettings.create().strength(0.0f));
@@ -127,6 +124,7 @@ public class Tropica implements ModInitializer {
         Registry.register(Registries.BLOCK, new Identifier(tropica, "coconut_shoot"), COCONUT_SHOOT);
         Registry.register(Registries.BLOCK, new Identifier(tropica, "coconut_trapdoor"), COCONUT_TRAPDOOR);
         Registry.register(Registries.BLOCK, new Identifier(tropica, "coconut_tuft"), COCONUT_TUFT);
+        
         
         Registry.register(Registries.ITEM, new Identifier(tropica, "black_mangrove_door"), new BlockItem(BLACK_MANGROVE_DOOR, new FabricItemSettings().maxCount(64)));
         Registry.register(Registries.ITEM, new Identifier(tropica, "black_mangrove_pressure_plate"), new BlockItem(BLACK_MANGROVE_PRESSURE_PLATE, new FabricItemSettings().maxCount(64)));
