@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tropica:block/black_mangrove_slab"
+    },
+    "type=double": {
+      "model": "tropica:block/black_mangrove_planks"
+    },
+    "type=top": {
+      "model": "tropica:block/black_mangrove_slab_top"
+    }
+  }
+}

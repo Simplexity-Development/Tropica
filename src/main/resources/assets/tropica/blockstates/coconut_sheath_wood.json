@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tropica:block/coconut_sheath_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tropica:block/coconut_sheath_wood"
+    },
+    "axis=z": {
+      "model": "tropica:block/coconut_sheath_wood",
+      "x": 90
+    }
+  }
+}
