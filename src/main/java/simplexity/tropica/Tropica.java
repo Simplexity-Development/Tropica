@@ -23,8 +23,6 @@ public class Tropica implements ModInitializer {
     // That way, it's clear which mod wrote info, warnings, and errors.
     public static final Logger LOGGER = LoggerFactory.getLogger("tropica");
     public static final String tropica = "tropica";
-    public static final FabricBlockSettings logBlockSettings = FabricBlockSettings.create()
-            .resistance(2.0f).strength(2.0f).burnable().sounds(BlockSoundGroup.WOOD);
     
     //Items
 //    public static final Item BLACK_MANGROVE_BOAT = new Item(new FabricItemSettings().maxCount(1));
@@ -60,7 +58,7 @@ public class Tropica implements ModInitializer {
     public static final Block BLACK_MANGROVE_PLANKS = new Block(FabricBlockSettings.create().strength(2.0f));
     public static final Block BLACK_MANGROVE_KNEES = new Block(FabricBlockSettings.create().strength(0.7f));
     public static final Block BLACK_MANGROVE_LEAVES = new Block(FabricBlockSettings.create().strength(0.2f));
-    public static final Block BLACK_MANGROVE_LOG = new PillarBlock(logBlockSettings);
+    public static final Block BLACK_MANGROVE_LOG = new PillarBlock(FabricBlockSettings.copyOf(Blocks.OAK_LOG));
     public static final Block STRIPPED_BLACK_MANGROVE_LOG = new PillarBlock(FabricBlockSettings.create().strength(2.0f));
     public static final Block STRIPPED_BLACK_MANGROVE_WOOD = new Block(FabricBlockSettings.create().strength(2.0f));
     public static final Block BLACK_MANGROVE_HANGING_PROPAGULE = new Block(FabricBlockSettings.create().strength(0.1f));
