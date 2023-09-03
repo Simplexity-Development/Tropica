@@ -1,39 +1,13 @@
-# CURRENTLY NOT FUNCTIONAL:
+# TODOS:
 
-Current stacktrace when attempting to load mod:
-
-```console
-[13:57:45] [Render thread/ERROR]: Unhandled game exception
-java.lang.IllegalStateException: Some intrusive holders were not registered: [Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}, Reference{null=air}]
-	at net.minecraft.class_2370.method_40276(class_2370.java:364) ~[client-intermediary.jar:?]
-	at net.minecraft.class_7923.method_47491(class_7923.java:239) ~[client-intermediary.jar:?]
-	at net.minecraft.class_7923.method_47476(class_7923.java:223) ~[client-intermediary.jar:?]
-	at net.minecraft.class_310.handler$zha001$fabric-registry-sync-v0$onStart(class_310.java:5039) ~[client-intermediary.jar:?]
-	at net.minecraft.class_310.method_1514(class_310.java:781) ~[client-intermediary.jar:?]
-	at net.minecraft.client.main.Main.main(Main.java:250) ~[minecraft-1.20.1-client.jar:?]
-	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:468) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) ~[fabric-loader-0.14.22.jar:?]
-	at org.prismlauncher.launcher.impl.StandardLauncher.launch(StandardLauncher.java:88) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.listen(EntryPoint.java:126) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.main(EntryPoint.java:71) ~[NewLaunch.jar:?]
-[13:57:45] [Render thread/INFO]: Stopping!
-[13:57:45] [Render thread/ERROR]: Shutdown failure!
-java.util.ConcurrentModificationException: null
-	at java.util.HashMap.forEach(HashMap.java:1424) ~[?:?]
-	at net.minecraft.class_1060.close(class_1060.java:174) ~[client-intermediary.jar:?]
-	at net.minecraft.class_310.close(class_310.java:1138) ~[client-intermediary.jar:?]
-	at net.minecraft.class_310.method_1490(class_310.java:1113) ~[client-intermediary.jar:?]
-	at net.minecraft.client.main.Main.main(Main.java:266) ~[minecraft-1.20.1-client.jar:?]
-	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:468) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) ~[fabric-loader-0.14.22.jar:?]
-	at org.prismlauncher.launcher.impl.StandardLauncher.launch(StandardLauncher.java:88) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.listen(EntryPoint.java:126) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.main(EntryPoint.java:71) ~[NewLaunch.jar:?]
-2023-09-01 13:57:46,019 Worker-Main-3 WARN Unable to register Log4j shutdown hook because JVM is shutting down. Using SimpleLogger
-Process exited with code 0.
-```
+Most non-block items are not implemented yet
+Signs do not render yet when placed
+the GUIs on signs are broken
+propagule textures are broken when placed
+fences are still weird
+one of the pressure plates doesn't render properly in the inventory for some reason
+Leaves are still grey
+Sand and coral have not been touched at all yet
 
 # Implementation Notes
 
