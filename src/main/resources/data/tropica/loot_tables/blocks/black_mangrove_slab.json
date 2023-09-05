@@ -11,7 +11,7 @@
               "add": false,
               "conditions": [
                 {
-                  "block": "minecraft:black_mangrove_slab",
+                  "block": "tropica:black_mangrove_slab",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "type": "double"

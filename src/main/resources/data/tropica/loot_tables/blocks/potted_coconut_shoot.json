@@ -26,7 +26,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tropica:coconut"
+          "name": "tropica:coconut_shoot"
         }
       ],
       "rolls": 1.0

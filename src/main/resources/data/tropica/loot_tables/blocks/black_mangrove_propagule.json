@@ -10,7 +10,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "minecraft:black_mangrove_propagule",
+          "block": "tropica:black_mangrove_propagule",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "4"
