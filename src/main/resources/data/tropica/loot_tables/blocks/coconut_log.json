@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "tropica:black_mangrove_log"
+          "name": "tropica:coconut_log"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "tropica:blocks/black_mangrove_log"
+  "random_sequence": "tropica:blocks/coconut_log"
 }

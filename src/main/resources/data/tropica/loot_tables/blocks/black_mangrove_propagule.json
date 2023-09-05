@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "functions": [
+    {
+      "function": "minecraft:explosion_decay"
+    }
+  ],
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "minecraft:black_mangrove_propagule",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "4"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "tropica:black_mangrove_propagule"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "tropica:blocks/black_mangrove_propagule"
+}
