@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -11,7 +12,9 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.Tropica;
+import simplexity.tropica.tileentity.CoconutSignEntity;
 
 public class TropicaBlock {
     
@@ -79,7 +82,12 @@ public class TropicaBlock {
     public static final Block COCONUT_WALL_HANGING_SIGN_BLOCK = new WallHangingSignBlock(wallHangingSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_HANGING_SIGN_BLOCK = new HangingSignBlock(hangingSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_WALL_SIGN = new WallSignBlock(wallSignSettings, COCONUT_WOOD_TYPE);
-    public static final Block COCONUT_SIGN = new SignBlock(signSettings, COCONUT_WOOD_TYPE);
+    public static final Block COCONUT_SIGN = new SignBlock(signSettings, COCONUT_WOOD_TYPE){
+        @Override
+        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+            return new CoconutSignEntity(pos, state);
+        }
+    };
     
     //Fence
     public static final Block BLACK_MANGROVE_FENCE = new FenceBlock(fenceSettings);
