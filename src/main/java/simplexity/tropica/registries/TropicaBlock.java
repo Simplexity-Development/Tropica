@@ -14,6 +14,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.Tropica;
+import simplexity.tropica.mixin.WoodTypeMixin;
 import simplexity.tropica.tileentity.CoconutSignEntity;
 
 public class TropicaBlock {
@@ -127,11 +128,15 @@ public class TropicaBlock {
     public static final Block GREEN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
     public static final Block COCONUT_BERRY = new PlantBlock(FabricBlockSettings.copyOf(Blocks.COCOA));
     public static final Block COCONUT_TUFT = new Block(FabricBlockSettings.copyOf(Blocks.HANGING_ROOTS));
-    
+
     private static void registerBlock(String name, Block block, Integer burnChance, Integer spreadChance) {
         Registry.register(Registries.BLOCK, new Identifier(tropica, name), block);
         FlammableBlockRegistry.getDefaultInstance().add(block, burnChance, spreadChance);
         
+    }
+
+    public static void registerWoodTypes() {
+        WoodTypeMixin.invokeRegister(COCONUT_WOOD_TYPE);
     }
     
     public static void registerModBlocks() {

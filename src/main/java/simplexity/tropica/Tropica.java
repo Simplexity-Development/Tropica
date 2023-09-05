@@ -13,6 +13,7 @@ public class Tropica implements ModInitializer {
     
     @Override
     public void onInitialize() {
+        TropicaBlock.registerWoodTypes();
         TropicaBlock.registerModBlocks();
         TropicaItem.registerModItems();
         TropicaBlock.registerCreativePlacements();
