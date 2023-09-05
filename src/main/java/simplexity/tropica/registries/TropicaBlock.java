@@ -118,9 +118,9 @@ public class TropicaBlock {
     
     //Leaves, Saplings
     public static final Block BLACK_MANGROVE_LEAVES = new Block(leavesSettings);
-    public static final Block BLACK_MANGROVE_PROPAGULE = new Block(FabricBlockSettings.copyOf(Blocks.MANGROVE_PROPAGULE));
+    public static final Block BLACK_MANGROVE_PROPAGULE = new PropaguleBlock(FabricBlockSettings.copyOf(Blocks.MANGROVE_PROPAGULE));
     public static final Block COCONUT_LEAVES = new Block(leavesSettings);
-    public static final Block COCONUT_SHOOT = new Block(FabricBlockSettings.copyOf(Blocks.ACACIA_SAPLING));
+    public static final Block COCONUT_SHOOT = new PropaguleBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_SAPLING));
     //Etc
     public static final Block BLACK_MANGROVE_KNEES = new Block(FabricBlockSettings.copyOf(Blocks.MANGROVE_ROOTS));
     public static final Block BROWN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
