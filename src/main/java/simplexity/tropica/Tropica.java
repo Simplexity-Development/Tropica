@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import simplexity.tropica.registries.TropicaBlock;
 import simplexity.tropica.registries.TropicaBlockEntity;
+import simplexity.tropica.registries.TropicaEntity;
 import simplexity.tropica.registries.TropicaItem;
 
 public class Tropica implements ModInitializer {
@@ -19,6 +20,7 @@ public class Tropica implements ModInitializer {
         TropicaItem.registerModItems();
         TropicaBlock.registerCreativePlacements();
         TropicaBlockEntity.registerBlockEntities();
+        TropicaEntity.registerEntities();
         LOGGER.info("TROPICA IS LOADED YE");
     }
 }

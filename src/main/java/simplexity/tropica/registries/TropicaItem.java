@@ -1,6 +1,7 @@
 package simplexity.tropica.registries;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -68,6 +69,9 @@ public class TropicaItem {
     public static final Item GREEN_COCONUT_BLOCK = new BlockItem(TropicaBlock.GREEN_COCONUT_BLOCK, fullStackItem);
     public static final Item COCONUT = new Item(quarterStackItem);
     public static final Item COCONUT_TUFT = new BlockItem(TropicaBlock.COCONUT_TUFT, fullStackItem);
+
+    // Boats
+    public static final Item COCONUT_BOAT = new BoatItem(false, BoatEntity.Type.OAK, singleItem);
     
     
     private static void registerItem(String name, Item item) {
@@ -127,6 +131,9 @@ public class TropicaItem {
         registerItem("green_coconut_block", GREEN_COCONUT_BLOCK);
         registerItem("coconut", COCONUT);
         registerItem("coconut_tuft", COCONUT_TUFT);
+
+        // Boats
+        registerItem("coconut_boat", COCONUT_BOAT);
     }
     
     

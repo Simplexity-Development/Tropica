@@ -20,6 +20,8 @@ import simplexity.tropica.tileentity.BlackMangroveWallSignEntity;
 import simplexity.tropica.tileentity.CoconutSignEntity;
 import simplexity.tropica.tileentity.CoconutWallSignEntity;
 
+import static simplexity.tropica.registries.TropicaItem.COCONUT_BOAT;
+
 public class TropicaBlock {
     
     private static final String tropica = Tropica.tropica;
@@ -266,6 +268,9 @@ public class TropicaBlock {
             content.addAfter(COCONUT_SIGN, COCONUT_HANGING_SIGN_BLOCK);
             content.addAfter(Items.DARK_OAK_HANGING_SIGN, BLACK_MANGROVE_SIGN);
             content.addAfter(BLACK_MANGROVE_SIGN, BLACK_MANGROVE_HANGING_SIGN_BLOCK);
+        });
+        ItemGroupEvents.modifyEntriesEvent(ItemGroups.TOOLS).register(content -> {
+            content.addAfter(Items.JUNGLE_BOAT, COCONUT_BOAT);
         });
     }
 }
