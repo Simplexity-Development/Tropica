@@ -116,3 +116,21 @@ java.io.FileNotFoundException: minecraft:textures/gui/hanging_signs/coconut.png
 
 
 ```
+
+## Handling Custom Boat Types
+
+Commit [a5d0ae3](https://github.com/Simplexity-Development/Tropica/commit/a5d0ae3b06f9929eb561a361474ef9cdb2348c38) has made it clear that handling boat types will not be so simple.
+
+**Issues**
+- Boat Types currently are set up as an inner class enum, `BoatEntity.Type`.
+- Mixins currently is incapable of adding an Enum value to a class.
+- Most mods have a sort of manual implementation that has a fallback to the Oak Boat, and just handles everything else themselves.
+
+**References**
+- [NatureSpirit: HibiscusBoatEntity.java](https://github.com/Team-Hibiscus/NatureSpirit/blob/master/remappedSrc/net/hibiscus/naturespirit/entity/HibiscusBoatEntity.java)
+- [Fabric: API for Adding Boat Types](https://github.com/FabricMC/fabric/issues/688)
+  - [Terraform API](https://github.com/TerraformersMC/Terraform)
+- [Fabric: Add Support for Adding Enum Constants](https://github.com/SpongePowered/Mixin/issues/387)
+  - [Noteblock Expansion: NoteblockInstrumentsMixin.java](https://github.com/LudoCrypt/Noteblock-Expansion-Forge/blob/main/src/main/java/net/ludocrypt/nbexpand/mixin/NoteblockInstrumentMixin.java)
+    - Has not been updated since 1.17 (Last updated July 2021), see [CurseForge: Noteblock Expansion](https://www.curseforge.com/minecraft/mc-mods/noteblock-expansion) and [Noteblock Expansion: Releases](https://github.com/LudoCrypt/Noteblock-Expansion-Forge)
+    - Has a general structure of how they worked around the issue with Enum Constants.
