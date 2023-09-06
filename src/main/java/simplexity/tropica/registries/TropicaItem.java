@@ -1,10 +1,7 @@
 package simplexity.tropica.registries;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.HangingSignItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SignItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -15,6 +12,7 @@ public class TropicaItem {
     private static final String tropica = Tropica.tropica;
     static final FabricItemSettings fullStackItem = new FabricItemSettings().maxCount(64);
     static final FabricItemSettings quarterStackItem = new FabricItemSettings().maxCount(16);
+    static final FabricItemSettings singleItem = new FabricItemSettings().maxCount(1);
     //Items
     
     //Block Items
@@ -64,6 +62,12 @@ public class TropicaItem {
     public static final Item BLACK_MANGROVE_PROPAGULE = new BlockItem(TropicaBlock.BLACK_MANGROVE_PROPAGULE, fullStackItem);
     //tree etc
     public static final Item BLACK_MANGROVE_KNEES = new BlockItem(TropicaBlock.BLACK_MANGROVE_KNEES, fullStackItem);
+    //non-tree items
+    public static final Item BROWN_COCONUT_BLOCK = new BlockItem(TropicaBlock.BROWN_COCONUT_BLOCK, fullStackItem);
+    public static final Item YELLOW_COCONUT_BLOCK = new BlockItem(TropicaBlock.YELLOW_COCONUT_BLOCK, fullStackItem);
+    public static final Item GREEN_COCONUT_BLOCK = new BlockItem(TropicaBlock.GREEN_COCONUT_BLOCK, fullStackItem);
+    public static final Item COCONUT = new Item(quarterStackItem);
+    public static final Item COCONUT_TUFT = new BlockItem(TropicaBlock.COCONUT_TUFT, fullStackItem);
     
     
     private static void registerItem(String name, Item item) {
@@ -117,6 +121,12 @@ public class TropicaItem {
         registerItem("black_mangrove_propagule", BLACK_MANGROVE_PROPAGULE);
         //tree etc
         registerItem("black_mangrove_knees", BLACK_MANGROVE_KNEES);
+        //non-tree-items
+        registerItem("brown_coconut_block", BROWN_COCONUT_BLOCK);
+        registerItem("yellow_coconut_block", YELLOW_COCONUT_BLOCK);
+        registerItem("green_coconut_block", GREEN_COCONUT_BLOCK);
+        registerItem("coconut", COCONUT);
+        registerItem("coconut_tuft", COCONUT_TUFT);
     }
     
     

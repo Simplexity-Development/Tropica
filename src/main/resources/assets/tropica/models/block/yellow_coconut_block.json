@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tropica:block/yellow_coconut_block",
+    "side": "tropica:block/yellow_coconut_block"
+  }
+}

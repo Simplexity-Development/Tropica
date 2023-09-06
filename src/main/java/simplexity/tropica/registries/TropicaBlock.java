@@ -235,7 +235,12 @@ public class TropicaBlock {
             content.addAfter(Items.JUNGLE_LEAVES, COCONUT_LEAVES);
             content.addAfter(Items.DARK_OAK_LOG, BLACK_MANGROVE_LOG);
             content.addAfter(Items.DARK_OAK_LEAVES, BLACK_MANGROVE_LEAVES);
+            content.addAfter(Items.JUNGLE_SAPLING, TropicaItem.COCONUT_SHOOT);
             content.addAfter(Items.DARK_OAK_SAPLING, BLACK_MANGROVE_PROPAGULE);
+            content.addAfter(Items.HANGING_ROOTS, TropicaBlock.COCONUT_TUFT);
+            content.addAfter(Items.WET_SPONGE, TropicaItem.BROWN_COCONUT_BLOCK);
+            content.addAfter(TropicaItem.BROWN_COCONUT_BLOCK, TropicaItem.YELLOW_COCONUT_BLOCK);
+            content.addAfter(TropicaItem.YELLOW_COCONUT_BLOCK, TropicaItem.GREEN_COCONUT_BLOCK);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
             content.addAfter(Items.JUNGLE_HANGING_SIGN, COCONUT_SIGN);
