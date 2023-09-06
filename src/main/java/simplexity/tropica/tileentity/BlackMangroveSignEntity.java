@@ -6,6 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.registries.TropicaBlockEntity;
 
 public class BlackMangroveSignEntity extends SignBlockEntity {
+
     public BlackMangroveSignEntity(BlockPos pos, BlockState state) {
         super(TropicaBlockEntity.BLACK_MANGROVE_SIGN_ENTITY, pos, state);
     }

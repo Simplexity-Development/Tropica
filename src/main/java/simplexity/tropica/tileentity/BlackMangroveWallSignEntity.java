@@ -5,10 +5,10 @@ import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.registries.TropicaBlockEntity;
 
-public class CoconutSignEntity extends SignBlockEntity {
+public class BlackMangroveWallSignEntity extends SignBlockEntity {
 
-    public CoconutSignEntity(BlockPos pos, BlockState state) {
-        super(TropicaBlockEntity.COCONUT_SIGN_ENTITY, pos, state);
+    public BlackMangroveWallSignEntity(BlockPos pos, BlockState state) {
+        super(TropicaBlockEntity.BLACK_MANGROVE_WALL_SIGN_ENTITY, pos, state);
     }
 
 }

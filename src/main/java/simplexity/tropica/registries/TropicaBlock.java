@@ -16,7 +16,9 @@ import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.mixin.WoodTypeMixin;
 import simplexity.tropica.tileentity.BlackMangroveSignEntity;
+import simplexity.tropica.tileentity.BlackMangroveWallSignEntity;
 import simplexity.tropica.tileentity.CoconutSignEntity;
+import simplexity.tropica.tileentity.CoconutWallSignEntity;
 
 public class TropicaBlock {
     
@@ -82,7 +84,7 @@ public class TropicaBlock {
     public static final Block BLACK_MANGROVE_WALL_SIGN = new WallSignBlock(wallSignSettings, BLACK_MANGROVE_WOOD_TYPE) {
         @Override
         public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-            return new BlackMangroveSignEntity(pos, state);
+            return new BlackMangroveWallSignEntity(pos, state);
         }
     };
     public static final Block BLACK_MANGROVE_SIGN = new SignBlock(signSettings, BLACK_MANGROVE_WOOD_TYPE) {
@@ -96,7 +98,7 @@ public class TropicaBlock {
     public static final Block COCONUT_WALL_SIGN = new WallSignBlock(wallSignSettings, COCONUT_WOOD_TYPE) {
         @Override
         public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-            return new CoconutSignEntity(pos, state);
+            return new CoconutWallSignEntity(pos, state);
         }
     };
     public static final Block COCONUT_SIGN = new SignBlock(signSettings, COCONUT_WOOD_TYPE) {
