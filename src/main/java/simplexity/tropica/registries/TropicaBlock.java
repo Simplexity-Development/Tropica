@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.mixin.WoodTypeMixin;
+import simplexity.tropica.tileentity.BlackMangroveSignEntity;
 import simplexity.tropica.tileentity.CoconutSignEntity;
 
 public class TropicaBlock {
@@ -78,12 +79,27 @@ public class TropicaBlock {
     //Signs
     public static final Block BLACK_MANGROVE_WALL_HANGING_SIGN_BLOCK = new WallHangingSignBlock(wallHangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
     public static final Block BLACK_MANGROVE_HANGING_SIGN_BLOCK = new HangingSignBlock(hangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
-    public static final Block BLACK_MANGROVE_WALL_SIGN = new WallSignBlock(wallSignSettings, BLACK_MANGROVE_WOOD_TYPE);
-    public static final Block BLACK_MANGROVE_SIGN = new SignBlock(signSettings, BLACK_MANGROVE_WOOD_TYPE);
+    public static final Block BLACK_MANGROVE_WALL_SIGN = new WallSignBlock(wallSignSettings, BLACK_MANGROVE_WOOD_TYPE) {
+        @Override
+        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+            return new BlackMangroveSignEntity(pos, state);
+        }
+    };
+    public static final Block BLACK_MANGROVE_SIGN = new SignBlock(signSettings, BLACK_MANGROVE_WOOD_TYPE) {
+        @Override
+        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+            return new BlackMangroveSignEntity(pos, state);
+        }
+    };
     public static final Block COCONUT_WALL_HANGING_SIGN_BLOCK = new WallHangingSignBlock(wallHangingSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_HANGING_SIGN_BLOCK = new HangingSignBlock(hangingSignSettings, COCONUT_WOOD_TYPE);
-    public static final Block COCONUT_WALL_SIGN = new WallSignBlock(wallSignSettings, COCONUT_WOOD_TYPE);
-    public static final Block COCONUT_SIGN = new SignBlock(signSettings, COCONUT_WOOD_TYPE){
+    public static final Block COCONUT_WALL_SIGN = new WallSignBlock(wallSignSettings, COCONUT_WOOD_TYPE) {
+        @Override
+        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
+            return new CoconutSignEntity(pos, state);
+        }
+    };
+    public static final Block COCONUT_SIGN = new SignBlock(signSettings, COCONUT_WOOD_TYPE) {
         @Override
         public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
             return new CoconutSignEntity(pos, state);
@@ -137,6 +153,7 @@ public class TropicaBlock {
 
     public static void registerWoodTypes() {
         WoodTypeMixin.invokeRegister(COCONUT_WOOD_TYPE);
+        WoodTypeMixin.invokeRegister(BLACK_MANGROVE_WOOD_TYPE);
     }
     
     public static void registerModBlocks() {

@@ -7,14 +7,21 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.tileentity.CoconutSignEntity;
+import simplexity.tropica.tileentity.BlackMangroveSignEntity;
 
 public class TropicaBlockEntity {
 
     private final static String tropica = Tropica.tropica;
     public static final BlockEntityType<CoconutSignEntity> COCONUT_SIGN_ENTITY = FabricBlockEntityTypeBuilder.create(CoconutSignEntity::new, TropicaBlock.COCONUT_SIGN).build();
+    public static final BlockEntityType<CoconutSignEntity> COCONUT_WALL_SIGN_ENTITY = FabricBlockEntityTypeBuilder.create(CoconutSignEntity::new, TropicaBlock.COCONUT_WALL_SIGN).build();
+    public static final BlockEntityType<BlackMangroveSignEntity> BLACK_MANGROVE_SIGN_ENTITY = FabricBlockEntityTypeBuilder.create(BlackMangroveSignEntity::new, TropicaBlock.BLACK_MANGROVE_SIGN).build();
+    public static final BlockEntityType<BlackMangroveSignEntity> BLACK_MANGROVE_WALL_SIGN_ENTITY = FabricBlockEntityTypeBuilder.create(BlackMangroveSignEntity::new, TropicaBlock.BLACK_MANGROVE_WALL_SIGN).build();
 
     public static void registerBlockEntities() {
         Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(tropica, "coconut_sign_entity"), COCONUT_SIGN_ENTITY);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(tropica, "coconut_wall_sign_entity"), COCONUT_WALL_SIGN_ENTITY);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(tropica, "black_mangrove_sign_entity"), BLACK_MANGROVE_SIGN_ENTITY);
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, new Identifier(tropica, "black_mangrove_wall_sign_entity"), BLACK_MANGROVE_WALL_SIGN_ENTITY);
     }
 
 }
