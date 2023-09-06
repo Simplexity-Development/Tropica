@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "tropica:block/black_sandstone_top",
+    "side": "tropica:block/cut_black_sandstone"
+  }
+}

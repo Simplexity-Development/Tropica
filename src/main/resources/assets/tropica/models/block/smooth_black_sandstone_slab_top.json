@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab_top",
+  "textures": {
+    "bottom": "tropica:block/black_sandstone_top",
+    "side": "tropica:block/black_sandstone_top",
+    "top": "tropica:block/black_sandstone_top"
+  }
+}

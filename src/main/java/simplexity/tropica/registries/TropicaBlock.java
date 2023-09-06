@@ -11,6 +11,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.Tropica;
@@ -37,8 +38,8 @@ public class TropicaBlock {
     private static final int leavesFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_LEAVES).getSpreadChance();
     private static final int saplingBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_SAPLING).getBurnChance();
     private static final int saplingFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_SAPLING).getSpreadChance();
-    
-    
+    private static final int sandstoneBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.SANDSTONE).getBurnChance();
+    private static final int sandstoneFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.SANDSTONE).getSpreadChance();
     public static final BlockState defaultStairState = Blocks.OAK_STAIRS.getDefaultState();
     public static final FabricBlockSettings logSettings = FabricBlockSettings.copyOf(Blocks.OAK_LOG);
     public static final FabricBlockSettings woodSettings = FabricBlockSettings.copyOf(Blocks.OAK_WOOD);
@@ -58,10 +59,6 @@ public class TropicaBlock {
     public static final FabricBlockSettings hangingSignSettings = FabricBlockSettings.copyOf(Blocks.OAK_HANGING_SIGN);
     public static final FabricBlockSettings wallHangingSignSettings = FabricBlockSettings.copyOf(Blocks.OAK_WALL_HANGING_SIGN);
     public static final FabricBlockSettings leavesSettings = FabricBlockSettings.copyOf(Blocks.OAK_LEAVES);
-    public static final FabricBlockSettings sandSettings = FabricBlockSettings.copyOf(Blocks.SAND);
-    public static final FabricBlockSettings sandstoneSettings = FabricBlockSettings.copyOf(Blocks.SANDSTONE);
-    public static final FabricBlockSettings coralBlockSettings = FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_BLOCK);
-    public static final FabricBlockSettings coralFanSettings = FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL);
     
     //Block Set Type and Wood Type Declarations
     public static final BlockSetType BLACK_MANGROVE_BLOCK_SET_TYPE = new BlockSetType("black_mangrove", true, BlockSoundGroup.WOOD, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE, SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON);
@@ -148,7 +145,19 @@ public class TropicaBlock {
     public static final Block GREEN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
     public static final Block COCONUT_BERRY = new PlantBlock(FabricBlockSettings.copyOf(Blocks.COCOA));
     public static final Block COCONUT_TUFT = new Block(FabricBlockSettings.copyOf(Blocks.HANGING_ROOTS));
-
+    //sand
+    public static final Block BLACK_SAND = new SandBlock(1, FabricBlockSettings.copyOf(Blocks.SAND).mapColor(DyeColor.BLACK));
+    public static final Block BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE).mapColor(DyeColor.BLACK));
+    public static final Block BLACK_SANDSTONE_STAIRS = new StairsBlock(defaultStairState, FabricBlockSettings.copyOf(Blocks.SANDSTONE_STAIRS).mapColor(DyeColor.BLACK));
+    public static final Block BLACK_SANDSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.SANDSTONE_SLAB).mapColor(DyeColor.BLACK));
+    public static final Block BLACK_SANDSTONE_WALL = new WallBlock(FabricBlockSettings.copyOf(Blocks.SANDSTONE_WALL));
+    public static final Block CUT_BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.CUT_SANDSTONE).mapColor(DyeColor.BLACK));
+    public static final Block CUT_BLACK_SANDSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.CUT_SANDSTONE_SLAB).mapColor(DyeColor.BLACK));
+    public static final Block SMOOTH_BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.SMOOTH_SANDSTONE).mapColor(DyeColor.BLACK));
+    public static final Block SMOOTH_BLACK_SANDSTONE_STAIRS = new StairsBlock(defaultStairState, FabricBlockSettings.copyOf(Blocks.SMOOTH_SANDSTONE_STAIRS).mapColor(DyeColor.BLACK));
+    public static final Block SMOOTH_BLACK_SANDSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.SMOOTH_SANDSTONE_SLAB).mapColor(DyeColor.BLACK));
+    public static final Block CHISELED_BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.CHISELED_SANDSTONE).mapColor(DyeColor.BLACK));
+    
     private static void registerBlock(String name, Block block, Integer burnChance, Integer spreadChance) {
         Registry.register(Registries.BLOCK, new Identifier(tropica, name), block);
         FlammableBlockRegistry.getDefaultInstance().add(block, burnChance, spreadChance);
@@ -217,6 +226,18 @@ public class TropicaBlock {
         registerBlock("green_coconut_block", GREEN_COCONUT_BLOCK, woodenItemsBurnChance, woodenItemsFireSpreadChance);
         registerBlock("coconut_berry", COCONUT_BERRY, nonBurningBurnChance, nonBurningFireSpreadChance);
         registerBlock("coconut_tuft", COCONUT_TUFT, veryFlammableBurnChance, veryFlammableSpreadChance);
+        // Sand & sandstone
+        registerBlock("black_sand", BLACK_SAND, FlammableBlockRegistry.getDefaultInstance().get(Blocks.SAND).getBurnChance(), FlammableBlockRegistry.getDefaultInstance().get(Blocks.SAND).getSpreadChance());
+        registerBlock("black_sandstone", BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("black_sandstone_stairs", BLACK_SANDSTONE_STAIRS, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("black_sandstone_slab", BLACK_SANDSTONE_SLAB, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("black_sandstone_wall", BLACK_SANDSTONE_WALL, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("cut_black_sandstone", CUT_BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("cut_black_sandstone_slab", CUT_BLACK_SANDSTONE_SLAB, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("smooth_black_sandstone", SMOOTH_BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("smooth_black_sandstone_stairs", SMOOTH_BLACK_SANDSTONE_STAIRS, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("smooth_black_sandstone_slab", SMOOTH_BLACK_SANDSTONE_SLAB, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("chiseled_black_sandstone", CHISELED_BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
     }
     
     public static void registerCreativePlacements() {
@@ -249,19 +270,31 @@ public class TropicaBlock {
             content.addAfter(BLACK_MANGROVE_DOOR, BLACK_MANGROVE_TRAPDOOR);
             content.addAfter(BLACK_MANGROVE_TRAPDOOR, BLACK_MANGROVE_PRESSURE_PLATE);
             content.addAfter(BLACK_MANGROVE_PRESSURE_PLATE, BLACK_MANGROVE_BUTTON);
+            content.addAfter(Items.CUT_RED_SANDSTONE_SLAB, BLACK_SANDSTONE);
+            content.addAfter(BLACK_SANDSTONE, BLACK_SANDSTONE_STAIRS);
+            content.addAfter(BLACK_SANDSTONE_STAIRS, BLACK_SANDSTONE_SLAB);
+            content.addAfter(BLACK_SANDSTONE_SLAB, BLACK_SANDSTONE_WALL);
+            content.addAfter(BLACK_SANDSTONE_WALL, CHISELED_BLACK_SANDSTONE);
+            content.addAfter(CHISELED_BLACK_SANDSTONE, SMOOTH_BLACK_SANDSTONE);
+            content.addAfter(SMOOTH_BLACK_SANDSTONE, SMOOTH_BLACK_SANDSTONE_STAIRS);
+            content.addAfter(SMOOTH_BLACK_SANDSTONE_STAIRS, SMOOTH_BLACK_SANDSTONE_SLAB);
+            content.addAfter(SMOOTH_BLACK_SANDSTONE_SLAB, CUT_BLACK_SANDSTONE);
+            content.addAfter(CUT_BLACK_SANDSTONE, CUT_BLACK_SANDSTONE_SLAB);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
+            content.addAfter(Items.RED_SANDSTONE, BLACK_SAND);
+            content.addAfter(BLACK_SAND, BLACK_SANDSTONE);
             content.addAfter(Items.JUNGLE_LOG, COCONUT_SHEATH);
             content.addAfter(COCONUT_SHEATH, COCONUT_LOG);
             content.addAfter(Items.JUNGLE_LEAVES, COCONUT_LEAVES);
             content.addAfter(Items.DARK_OAK_LOG, BLACK_MANGROVE_LOG);
             content.addAfter(Items.DARK_OAK_LEAVES, BLACK_MANGROVE_LEAVES);
-            content.addAfter(Items.JUNGLE_SAPLING, TropicaItem.COCONUT_SHOOT);
+            content.addAfter(Items.JUNGLE_SAPLING, TropicaItem.COCONUT);
             content.addAfter(Items.DARK_OAK_SAPLING, BLACK_MANGROVE_PROPAGULE);
             content.addAfter(Items.HANGING_ROOTS, TropicaBlock.COCONUT_TUFT);
-            content.addAfter(Items.WET_SPONGE, TropicaItem.BROWN_COCONUT_BLOCK);
-            content.addAfter(TropicaItem.BROWN_COCONUT_BLOCK, TropicaItem.YELLOW_COCONUT_BLOCK);
-            content.addAfter(TropicaItem.YELLOW_COCONUT_BLOCK, TropicaItem.GREEN_COCONUT_BLOCK);
+            content.addAfter(Items.WET_SPONGE, TropicaItem.GREEN_COCONUT_BLOCK);
+            content.addAfter(TropicaItem.GREEN_COCONUT_BLOCK, TropicaItem.YELLOW_COCONUT_BLOCK);
+            content.addAfter(TropicaItem.YELLOW_COCONUT_BLOCK, TropicaItem.BROWN_COCONUT_BLOCK);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
             content.addAfter(Items.JUNGLE_HANGING_SIGN, COCONUT_SIGN);

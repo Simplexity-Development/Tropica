@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tropica:block/coconut_shoot"
+    "layer0": "tropica:block/coconut_tuft"
   }
 }

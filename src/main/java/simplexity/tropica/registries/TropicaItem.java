@@ -58,7 +58,6 @@ public class TropicaItem {
     public static final Item BLACK_MANGROVE_STAIRS = new BlockItem(TropicaBlock.BLACK_MANGROVE_STAIRS, fullStackItem);
     //leaves/saplings
     public static final Item COCONUT_LEAVES = new BlockItem(TropicaBlock.COCONUT_LEAVES, fullStackItem);
-    public static final Item COCONUT_SHOOT = new BlockItem(TropicaBlock.COCONUT_SHOOT, fullStackItem);
     public static final Item BLACK_MANGROVE_LEAVES = new BlockItem(TropicaBlock.BLACK_MANGROVE_LEAVES, fullStackItem);
     public static final Item BLACK_MANGROVE_PROPAGULE = new BlockItem(TropicaBlock.BLACK_MANGROVE_PROPAGULE, fullStackItem);
     //tree etc
@@ -67,13 +66,23 @@ public class TropicaItem {
     public static final Item BROWN_COCONUT_BLOCK = new BlockItem(TropicaBlock.BROWN_COCONUT_BLOCK, fullStackItem);
     public static final Item YELLOW_COCONUT_BLOCK = new BlockItem(TropicaBlock.YELLOW_COCONUT_BLOCK, fullStackItem);
     public static final Item GREEN_COCONUT_BLOCK = new BlockItem(TropicaBlock.GREEN_COCONUT_BLOCK, fullStackItem);
-    public static final Item COCONUT = new Item(quarterStackItem);
+    public static final Item COCONUT = new BlockItem(TropicaBlock.COCONUT_SHOOT ,fullStackItem);
     public static final Item COCONUT_TUFT = new BlockItem(TropicaBlock.COCONUT_TUFT, fullStackItem);
 
     // Boats
     public static final Item COCONUT_BOAT = new BoatItem(false, BoatEntity.Type.OAK, singleItem);
-    
-    
+    // Sand & sandstone
+    public static final Item BLACK_SAND = new BlockItem(TropicaBlock.BLACK_SAND, fullStackItem);
+    public static final Item BLACK_SANDSTONE = new BlockItem(TropicaBlock.BLACK_SANDSTONE, fullStackItem);
+    public static final Item BLACK_SANDSTONE_STAIRS = new BlockItem(TropicaBlock.BLACK_SANDSTONE_STAIRS, fullStackItem);
+    public static final Item BLACK_SANDSTONE_SLAB = new BlockItem(TropicaBlock.BLACK_SANDSTONE_SLAB, fullStackItem);
+    public static final Item BLACK_SANDSTONE_WALL = new BlockItem(TropicaBlock.BLACK_SANDSTONE_WALL, fullStackItem);
+    public static final Item CUT_BLACK_SANDSTONE = new BlockItem(TropicaBlock.CUT_BLACK_SANDSTONE, fullStackItem);
+    public static final Item CUT_BLACK_SANDSTONE_SLAB = new BlockItem(TropicaBlock.CUT_BLACK_SANDSTONE_SLAB, fullStackItem);
+    public static final Item SMOOTH_BLACK_SANDSTONE = new BlockItem(TropicaBlock.SMOOTH_BLACK_SANDSTONE, fullStackItem);
+    public static final Item SMOOTH_BLACK_SANDSTONE_STAIRS = new BlockItem(TropicaBlock.SMOOTH_BLACK_SANDSTONE_STAIRS, fullStackItem);
+    public static final Item SMOOTH_BLACK_SANDSTONE_SLAB = new BlockItem(TropicaBlock.SMOOTH_BLACK_SANDSTONE_SLAB, fullStackItem);
+    public static final Item CHISELED_BLACK_SANDSTONE = new BlockItem(TropicaBlock.CHISELED_BLACK_SANDSTONE, fullStackItem);
     private static void registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, new Identifier(tropica, name), item);
     }
@@ -120,7 +129,6 @@ public class TropicaItem {
         registerItem("black_mangrove_stairs", BLACK_MANGROVE_STAIRS);
         //leaves/saplings
         registerItem("coconut_leaves", COCONUT_LEAVES);
-        registerItem("coconut_shoot", COCONUT_SHOOT);
         registerItem("black_mangrove_leaves", BLACK_MANGROVE_LEAVES);
         registerItem("black_mangrove_propagule", BLACK_MANGROVE_PROPAGULE);
         //tree etc
@@ -134,6 +142,18 @@ public class TropicaItem {
 
         // Boats
         registerItem("coconut_boat", COCONUT_BOAT);
+        // Sand & sandstone
+        registerItem("black_sand", BLACK_SAND);
+        registerItem("black_sandstone", BLACK_SANDSTONE);
+        registerItem("black_sandstone_stairs", BLACK_SANDSTONE_STAIRS);
+        registerItem("black_sandstone_slab", BLACK_SANDSTONE_SLAB);
+        registerItem("black_sandstone_wall", BLACK_SANDSTONE_WALL);
+        registerItem("cut_black_sandstone", CUT_BLACK_SANDSTONE);
+        registerItem("cut_black_sandstone_slab", CUT_BLACK_SANDSTONE_SLAB);
+        registerItem("smooth_black_sandstone", SMOOTH_BLACK_SANDSTONE);
+        registerItem("smooth_black_sandstone_stairs", SMOOTH_BLACK_SANDSTONE_STAIRS);
+        registerItem("smooth_black_sandstone_slab", SMOOTH_BLACK_SANDSTONE_SLAB);
+        registerItem("chiseled_black_sandstone", CHISELED_BLACK_SANDSTONE);
     }
     
     

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tropica:block/cut_black_sandstone_slab"
+    },
+    "type=double": {
+      "model": "tropica:block/cut_black_sandstone"
+    },
+    "type=top": {
+      "model": "tropica:block/cut_black_sandstone_slab_top"
+    }
+  }
+}
