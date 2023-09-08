@@ -163,7 +163,7 @@ public class TropicaBlock {
     public static final Block CHISELED_BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.CHISELED_SANDSTONE).mapColor(DyeColor.BLACK));
     //Coral
     public static final Block DEAD_HAMMER_CORAL_BLOCK = new DeadCoralBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_BLOCK));
-    public static final Block HAMMER_CORAL_BLOCK = new CoralBlock(DEAD_HAMMER_CORAL_BLOCK ,FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_BLOCK));
+    public static final Block HAMMER_CORAL_BLOCK = new CoralBlockBlock(DEAD_HAMMER_CORAL_BLOCK, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_BLOCK));
     public static final Block DEAD_HAMMER_CORAL = new DeadCoralFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL));
     public static final Block HAMMER_CORAL = new CoralFanBlock(DEAD_HAMMER_CORAL, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL));
     public static final Block DEAD_HAMMER_CORAL_FAN = new DeadCoralWallFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_FAN));
