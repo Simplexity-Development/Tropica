@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "tropica:block/dead_hammer_coral_block"
+  }
+}

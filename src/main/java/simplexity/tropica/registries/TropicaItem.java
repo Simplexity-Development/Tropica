@@ -66,9 +66,9 @@ public class TropicaItem {
     public static final Item BROWN_COCONUT_BLOCK = new BlockItem(TropicaBlock.BROWN_COCONUT_BLOCK, fullStackItem);
     public static final Item YELLOW_COCONUT_BLOCK = new BlockItem(TropicaBlock.YELLOW_COCONUT_BLOCK, fullStackItem);
     public static final Item GREEN_COCONUT_BLOCK = new BlockItem(TropicaBlock.GREEN_COCONUT_BLOCK, fullStackItem);
-    public static final Item COCONUT = new BlockItem(TropicaBlock.COCONUT_SHOOT ,fullStackItem);
+    public static final Item COCONUT = new BlockItem(TropicaBlock.COCONUT_SHOOT, fullStackItem);
     public static final Item COCONUT_TUFT = new BlockItem(TropicaBlock.COCONUT_TUFT, fullStackItem);
-
+    
     // Boats
     public static final Item COCONUT_BOAT = new BoatItem(false, BoatEntity.Type.OAK, singleItem);
     // Sand & sandstone
@@ -83,6 +83,14 @@ public class TropicaItem {
     public static final Item SMOOTH_BLACK_SANDSTONE_STAIRS = new BlockItem(TropicaBlock.SMOOTH_BLACK_SANDSTONE_STAIRS, fullStackItem);
     public static final Item SMOOTH_BLACK_SANDSTONE_SLAB = new BlockItem(TropicaBlock.SMOOTH_BLACK_SANDSTONE_SLAB, fullStackItem);
     public static final Item CHISELED_BLACK_SANDSTONE = new BlockItem(TropicaBlock.CHISELED_BLACK_SANDSTONE, fullStackItem);
+    //coral
+    public static final Item DEAD_HAMMER_CORAL_BLOCK = new BlockItem(TropicaBlock.DEAD_HAMMER_CORAL_BLOCK, fullStackItem);
+    public static final Item HAMMER_CORAL_BLOCK = new BlockItem(TropicaBlock.HAMMER_CORAL_BLOCK, fullStackItem);
+    public static final Item DEAD_HAMMER_CORAL = new BlockItem(TropicaBlock.DEAD_HAMMER_CORAL, fullStackItem);
+    public static final Item HAMMER_CORAL = new BlockItem(TropicaBlock.HAMMER_CORAL, fullStackItem);
+    public static final Item DEAD_HAMMER_CORAL_FAN = new BlockItem(TropicaBlock.DEAD_HAMMER_CORAL_FAN, fullStackItem);
+    public static final Item HAMMER_CORAL_FAN = new BlockItem(TropicaBlock.HAMMER_CORAL_FAN, fullStackItem);
+    
     private static void registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, new Identifier(tropica, name), item);
     }
@@ -139,7 +147,7 @@ public class TropicaItem {
         registerItem("green_coconut_block", GREEN_COCONUT_BLOCK);
         registerItem("coconut", COCONUT);
         registerItem("coconut_tuft", COCONUT_TUFT);
-
+        
         // Boats
         registerItem("coconut_boat", COCONUT_BOAT);
         // Sand & sandstone
@@ -154,6 +162,13 @@ public class TropicaItem {
         registerItem("smooth_black_sandstone_stairs", SMOOTH_BLACK_SANDSTONE_STAIRS);
         registerItem("smooth_black_sandstone_slab", SMOOTH_BLACK_SANDSTONE_SLAB);
         registerItem("chiseled_black_sandstone", CHISELED_BLACK_SANDSTONE);
+        //coral
+        registerItem("dead_hammer_coral_block", DEAD_HAMMER_CORAL_BLOCK);
+        registerItem("hammer_coral_block", HAMMER_CORAL_BLOCK);
+        registerItem("dead_hammer_coral", DEAD_HAMMER_CORAL);
+        registerItem("hammer_coral", HAMMER_CORAL);
+        registerItem("dead_hammer_coral_fan", DEAD_HAMMER_CORAL_FAN);
+        registerItem("hammer_coral_fan", HAMMER_CORAL_FAN);
     }
     
     

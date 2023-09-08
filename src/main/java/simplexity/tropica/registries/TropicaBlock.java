@@ -40,6 +40,10 @@ public class TropicaBlock {
     private static final int saplingFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_SAPLING).getSpreadChance();
     private static final int sandstoneBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.SANDSTONE).getBurnChance();
     private static final int sandstoneFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.SANDSTONE).getSpreadChance();
+    private static final int coralBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_BLOCK).getBurnChance();
+    private static final int coralFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_BLOCK).getSpreadChance();
+    private static final int coralFanBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_FAN).getBurnChance();
+    private static final int coralFanFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_FAN).getSpreadChance();
     public static final BlockState defaultStairState = Blocks.OAK_STAIRS.getDefaultState();
     public static final FabricBlockSettings logSettings = FabricBlockSettings.copyOf(Blocks.OAK_LOG);
     public static final FabricBlockSettings woodSettings = FabricBlockSettings.copyOf(Blocks.OAK_WOOD);
@@ -157,7 +161,16 @@ public class TropicaBlock {
     public static final Block SMOOTH_BLACK_SANDSTONE_STAIRS = new StairsBlock(defaultStairState, FabricBlockSettings.copyOf(Blocks.SMOOTH_SANDSTONE_STAIRS).mapColor(DyeColor.BLACK));
     public static final Block SMOOTH_BLACK_SANDSTONE_SLAB = new SlabBlock(FabricBlockSettings.copyOf(Blocks.SMOOTH_SANDSTONE_SLAB).mapColor(DyeColor.BLACK));
     public static final Block CHISELED_BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.CHISELED_SANDSTONE).mapColor(DyeColor.BLACK));
+    //Coral
+    public static final Block DEAD_HAMMER_CORAL_BLOCK = new DeadCoralBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_BLOCK));
+    public static final Block HAMMER_CORAL_BLOCK = new CoralBlock(DEAD_HAMMER_CORAL_BLOCK ,FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_BLOCK));
+    public static final Block DEAD_HAMMER_CORAL = new DeadCoralFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL));
+    public static final Block HAMMER_CORAL = new CoralFanBlock(DEAD_HAMMER_CORAL, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL));
+    public static final Block DEAD_HAMMER_CORAL_FAN = new DeadCoralWallFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_FAN));
+    public static final Block HAMMER_CORAL_FAN = new CoralWallFanBlock(DEAD_HAMMER_CORAL_FAN, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_FAN));
     
+    public static final Block DEAD_HAMMER_CORAL_WALL_FAN = new DeadCoralWallFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_WALL_FAN));
+    public static final Block HAMMER_CORAL_WALL_FAN = new CoralWallFanBlock(DEAD_HAMMER_CORAL_WALL_FAN, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_WALL_FAN));
     private static void registerBlock(String name, Block block, Integer burnChance, Integer spreadChance) {
         Registry.register(Registries.BLOCK, new Identifier(tropica, name), block);
         FlammableBlockRegistry.getDefaultInstance().add(block, burnChance, spreadChance);
@@ -238,6 +251,15 @@ public class TropicaBlock {
         registerBlock("smooth_black_sandstone_stairs", SMOOTH_BLACK_SANDSTONE_STAIRS, sandstoneBurnChance, sandstoneFireSpreadChance);
         registerBlock("smooth_black_sandstone_slab", SMOOTH_BLACK_SANDSTONE_SLAB, sandstoneBurnChance, sandstoneFireSpreadChance);
         registerBlock("chiseled_black_sandstone", CHISELED_BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
+        // Coral
+        registerBlock("dead_hammer_coral_block", DEAD_HAMMER_CORAL_BLOCK, coralBurnChance, coralFireSpreadChance);
+        registerBlock("hammer_coral_block", HAMMER_CORAL_BLOCK, coralBurnChance, coralFireSpreadChance);
+        registerBlock("dead_hammer_coral", DEAD_HAMMER_CORAL, coralFanBurnChance, coralFanFireSpreadChance);
+        registerBlock("hammer_coral", HAMMER_CORAL, coralFanBurnChance, coralFanFireSpreadChance);
+        registerBlock("dead_hammer_coral_fan", DEAD_HAMMER_CORAL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
+        registerBlock("hammer_coral_fan", HAMMER_CORAL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
+        registerBlock("dead_hammer_coral_wall_fan", DEAD_HAMMER_CORAL_WALL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
+        registerBlock("hammer_coral_wall_fan", HAMMER_CORAL_WALL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
     }
     
     public static void registerCreativePlacements() {
@@ -295,6 +317,12 @@ public class TropicaBlock {
             content.addAfter(Items.WET_SPONGE, TropicaItem.GREEN_COCONUT_BLOCK);
             content.addAfter(TropicaItem.GREEN_COCONUT_BLOCK, TropicaItem.YELLOW_COCONUT_BLOCK);
             content.addAfter(TropicaItem.YELLOW_COCONUT_BLOCK, TropicaItem.BROWN_COCONUT_BLOCK);
+            content.addAfter(Items.HORN_CORAL_BLOCK, HAMMER_CORAL_BLOCK);
+            content.addAfter(Items.DEAD_HORN_CORAL_BLOCK, DEAD_HAMMER_CORAL_BLOCK);
+            content.addAfter(Items.HORN_CORAL, HAMMER_CORAL);
+            content.addAfter(Items.DEAD_BRAIN_CORAL, DEAD_HAMMER_CORAL);
+            content.addAfter(Items.HORN_CORAL_FAN, HAMMER_CORAL_FAN);
+            content.addAfter(Items.DEAD_HORN_CORAL_FAN, DEAD_HAMMER_CORAL_FAN);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
             content.addAfter(Items.JUNGLE_HANGING_SIGN, COCONUT_SIGN);
