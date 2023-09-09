@@ -15,13 +15,14 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.entity.CoconutEntity;
+import simplexity.tropica.registries.item.Coconut;
 
 public class TropicaItem {
     
     private static final String tropica = Tropica.tropica;
-    static final FabricItemSettings fullStackItem = new FabricItemSettings().maxCount(64);
-    static final FabricItemSettings quarterStackItem = new FabricItemSettings().maxCount(16);
-    static final FabricItemSettings singleItem = new FabricItemSettings().maxCount(1);
+    public static final FabricItemSettings fullStackItem = new FabricItemSettings().maxCount(64);
+    public static final FabricItemSettings quarterStackItem = new FabricItemSettings().maxCount(16);
+    public static final FabricItemSettings singleItem = new FabricItemSettings().maxCount(1);
     //Items
     
     //Block Items
@@ -74,27 +75,7 @@ public class TropicaItem {
     public static final Item BROWN_COCONUT_BLOCK = new BlockItem(TropicaBlock.BROWN_COCONUT_BLOCK, fullStackItem);
     public static final Item YELLOW_COCONUT_BLOCK = new BlockItem(TropicaBlock.YELLOW_COCONUT_BLOCK, fullStackItem);
     public static final Item GREEN_COCONUT_BLOCK = new BlockItem(TropicaBlock.GREEN_COCONUT_BLOCK, fullStackItem);
-    public static final Item COCONUT = new BlockItem(TropicaBlock.COCONUT_SHOOT, fullStackItem) {
-        @Override
-        public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-            ItemStack item = user.getStackInHand(hand);
-            world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5f, 0.1f);
-            if (!world.isClient) {
-                CoconutEntity entity = new CoconutEntity(world, user);
-                entity.setItem(item);
-                entity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0f, 0.5f, 0f);
-                world.spawnEntity(entity);
-            }
-            user.incrementStat(Stats.USED.getOrCreateStat(this));
-            if (!user.getAbilities().creativeMode) item.decrement(1);
-            return TypedActionResult.success(item, world.isClient());
-        }
-
-        @Override
-        public String getTranslationKey() {
-            return "item.tropica.coconut";
-        }
-    };
+    public static final Item COCONUT = new Coconut(TropicaBlock.COCONUT_SHOOT, quarterStackItem);
     public static final Item COCONUT_TUFT = new BlockItem(TropicaBlock.COCONUT_TUFT, fullStackItem);
     
     // Boats

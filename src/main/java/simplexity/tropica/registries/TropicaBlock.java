@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -13,13 +12,12 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.BlockPos;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.mixin.WoodTypeMixin;
-import simplexity.tropica.tileentity.BlackMangroveSignEntity;
-import simplexity.tropica.tileentity.BlackMangroveWallSignEntity;
-import simplexity.tropica.tileentity.CoconutSignEntity;
-import simplexity.tropica.tileentity.CoconutWallSignEntity;
+import simplexity.tropica.registries.block.BlackMangroveSign;
+import simplexity.tropica.registries.block.BlackMangroveWallSign;
+import simplexity.tropica.registries.block.CoconutSign;
+import simplexity.tropica.registries.block.CoconutWallSign;
 
 import static simplexity.tropica.registries.TropicaItem.COCONUT_BOAT;
 
@@ -84,33 +82,13 @@ public class TropicaBlock {
     //Signs
     public static final Block BLACK_MANGROVE_WALL_HANGING_SIGN_BLOCK = new WallHangingSignBlock(wallHangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
     public static final Block BLACK_MANGROVE_HANGING_SIGN_BLOCK = new HangingSignBlock(hangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
-    public static final Block BLACK_MANGROVE_WALL_SIGN = new WallSignBlock(wallSignSettings, BLACK_MANGROVE_WOOD_TYPE) {
-        @Override
-        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-            return new BlackMangroveWallSignEntity(pos, state);
-        }
-    };
-    public static final Block BLACK_MANGROVE_SIGN = new SignBlock(signSettings, BLACK_MANGROVE_WOOD_TYPE) {
-        @Override
-        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-            return new BlackMangroveSignEntity(pos, state);
-        }
-    };
+    public static final Block BLACK_MANGROVE_WALL_SIGN = new BlackMangroveWallSign(wallSignSettings, BLACK_MANGROVE_WOOD_TYPE);
+    public static final Block BLACK_MANGROVE_SIGN = new BlackMangroveSign(signSettings, BLACK_MANGROVE_WOOD_TYPE);
     public static final Block COCONUT_WALL_HANGING_SIGN_BLOCK = new WallHangingSignBlock(wallHangingSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_HANGING_SIGN_BLOCK = new HangingSignBlock(hangingSignSettings, COCONUT_WOOD_TYPE);
-    public static final Block COCONUT_WALL_SIGN = new WallSignBlock(wallSignSettings, COCONUT_WOOD_TYPE) {
-        @Override
-        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-            return new CoconutWallSignEntity(pos, state);
-        }
-    };
-    public static final Block COCONUT_SIGN = new SignBlock(signSettings, COCONUT_WOOD_TYPE) {
-        @Override
-        public BlockEntity createBlockEntity(BlockPos pos, BlockState state) {
-            return new CoconutSignEntity(pos, state);
-        }
-    };
-    
+    public static final Block COCONUT_WALL_SIGN = new CoconutWallSign(wallSignSettings, COCONUT_WOOD_TYPE);
+    public static final Block COCONUT_SIGN = new CoconutSign(signSettings, COCONUT_WOOD_TYPE);
+
     //Fence
     public static final Block BLACK_MANGROVE_FENCE = new FenceBlock(fenceSettings);
     public static final Block BLACK_MANGROVE_FENCE_GATE = new FenceGateBlock(fenceGateSettings, BLACK_MANGROVE_WOOD_TYPE);
@@ -171,6 +149,7 @@ public class TropicaBlock {
     
     public static final Block DEAD_HAMMER_CORAL_WALL_FAN = new DeadCoralWallFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_WALL_FAN));
     public static final Block HAMMER_CORAL_WALL_FAN = new CoralWallFanBlock(DEAD_HAMMER_CORAL_WALL_FAN, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_WALL_FAN));
+
     private static void registerBlock(String name, Block block, Integer burnChance, Integer spreadChance) {
         Registry.register(Registries.BLOCK, new Identifier(tropica, name), block);
         FlammableBlockRegistry.getDefaultInstance().add(block, burnChance, spreadChance);
