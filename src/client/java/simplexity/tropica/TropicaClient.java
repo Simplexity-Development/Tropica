@@ -10,6 +10,7 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.util.Identifier;
 import simplexity.tropica.registries.TropicaBlock;
@@ -44,6 +45,7 @@ public class TropicaClient implements ClientModInitializer {
 				return new Identifier(tropica, "textures/entity/boat/coconut.png");
 			}
 		});
+		EntityRendererRegistry.register(TropicaEntity.COCONUT, FlyingItemEntityRenderer::new);
 	}
 
 	public void registerBlockRenderLayerMaps() {
