@@ -50,12 +50,16 @@ public class TropicaClient implements ClientModInitializer {
 
 	public void registerBlockRenderLayerMaps() {
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_LEAVES, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_SHOOT, RenderLayer.getCutout());
+
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_LEAVES, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_PROPAGULE, RenderLayer.getCutout());
 	}
 
 	public void registerColorProviders() {
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x5aed00, TropicaBlock.COCONUT_LEAVES);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x5aed00, TropicaItem.COCONUT_LEAVES);
+
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x92c648, TropicaBlock.BLACK_MANGROVE_LEAVES);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92c648, TropicaItem.BLACK_MANGROVE_LEAVES);
 	}
