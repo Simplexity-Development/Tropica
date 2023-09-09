@@ -1,4 +1,4 @@
-package simplexity.tropica.registries;
+package simplexity.tropica.registry;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;

@@ -1,21 +1,13 @@
-package simplexity.tropica.registries;
+package simplexity.tropica.registry;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
-import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
 import simplexity.tropica.Tropica;
-import simplexity.tropica.entity.CoconutEntity;
-import simplexity.tropica.registries.item.Coconut;
+import simplexity.tropica.registry.item.Coconut;
 
 public class TropicaItem {
     

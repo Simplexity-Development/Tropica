@@ -1,4 +1,4 @@
-package simplexity.tropica.registries;
+package simplexity.tropica.registry;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -14,12 +14,12 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.mixin.WoodTypeMixin;
-import simplexity.tropica.registries.block.BlackMangroveSign;
-import simplexity.tropica.registries.block.BlackMangroveWallSign;
-import simplexity.tropica.registries.block.CoconutSign;
-import simplexity.tropica.registries.block.CoconutWallSign;
+import simplexity.tropica.registry.block.BlackMangroveSign;
+import simplexity.tropica.registry.block.BlackMangroveWallSign;
+import simplexity.tropica.registry.block.CoconutSign;
+import simplexity.tropica.registry.block.CoconutWallSign;
 
-import static simplexity.tropica.registries.TropicaItem.COCONUT_BOAT;
+import static simplexity.tropica.registry.TropicaItem.COCONUT_BOAT;
 
 public class TropicaBlock {
     

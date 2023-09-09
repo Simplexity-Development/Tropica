@@ -13,10 +13,10 @@ import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.util.Identifier;
-import simplexity.tropica.registries.TropicaBlock;
-import simplexity.tropica.registries.TropicaBlockEntity;
-import simplexity.tropica.registries.TropicaEntity;
-import simplexity.tropica.registries.TropicaItem;
+import simplexity.tropica.registry.TropicaBlock;
+import simplexity.tropica.registry.TropicaBlockEntity;
+import simplexity.tropica.registry.TropicaEntity;
+import simplexity.tropica.registry.TropicaItem;
 
 @Environment(EnvType.CLIENT)
 public class TropicaClient implements ClientModInitializer {

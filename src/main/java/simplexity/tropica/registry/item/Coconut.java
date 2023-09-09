@@ -1,4 +1,4 @@
-package simplexity.tropica.registries.item;
+package simplexity.tropica.registry.item;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;

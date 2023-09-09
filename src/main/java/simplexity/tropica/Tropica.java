@@ -3,10 +3,10 @@ package simplexity.tropica;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import simplexity.tropica.registries.TropicaBlock;
-import simplexity.tropica.registries.TropicaBlockEntity;
-import simplexity.tropica.registries.TropicaEntity;
-import simplexity.tropica.registries.TropicaItem;
+import simplexity.tropica.registry.TropicaBlock;
+import simplexity.tropica.registry.TropicaBlockEntity;
+import simplexity.tropica.registry.TropicaEntity;
+import simplexity.tropica.registry.TropicaItem;
 
 public class Tropica implements ModInitializer {
     

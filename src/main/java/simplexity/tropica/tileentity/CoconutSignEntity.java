@@ -3,7 +3,7 @@ package simplexity.tropica.tileentity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.SignBlockEntity;
 import net.minecraft.util.math.BlockPos;
-import simplexity.tropica.registries.TropicaBlockEntity;
+import simplexity.tropica.registry.TropicaBlockEntity;
 
 public class CoconutSignEntity extends SignBlockEntity {
 

@@ -10,8 +10,8 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
-import simplexity.tropica.registries.TropicaEntity;
-import simplexity.tropica.registries.TropicaItem;
+import simplexity.tropica.registry.TropicaEntity;
+import simplexity.tropica.registry.TropicaItem;
 
 public class CoconutEntity extends ThrownItemEntity {
     public CoconutEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
