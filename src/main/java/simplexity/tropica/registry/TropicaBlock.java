@@ -14,10 +14,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.mixin.WoodTypeMixin;
-import simplexity.tropica.registry.block.BlackMangroveSign;
-import simplexity.tropica.registry.block.BlackMangroveWallSign;
-import simplexity.tropica.registry.block.CoconutSign;
-import simplexity.tropica.registry.block.CoconutWallSign;
+import simplexity.tropica.registry.block.*;
 
 import static simplexity.tropica.registry.TropicaItem.COCONUT_BOAT;
 
@@ -81,11 +78,11 @@ public class TropicaBlock {
     
     //Signs
     public static final Block BLACK_MANGROVE_WALL_HANGING_SIGN_BLOCK = new WallHangingSignBlock(wallHangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
-    public static final Block BLACK_MANGROVE_HANGING_SIGN_BLOCK = new HangingSignBlock(hangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
+    public static final Block BLACK_MANGROVE_HANGING_SIGN_BLOCK = new BlackMangroveHangingSign(hangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
     public static final Block BLACK_MANGROVE_WALL_SIGN = new BlackMangroveWallSign(wallSignSettings, BLACK_MANGROVE_WOOD_TYPE);
     public static final Block BLACK_MANGROVE_SIGN = new BlackMangroveSign(signSettings, BLACK_MANGROVE_WOOD_TYPE);
     public static final Block COCONUT_WALL_HANGING_SIGN_BLOCK = new WallHangingSignBlock(wallHangingSignSettings, COCONUT_WOOD_TYPE);
-    public static final Block COCONUT_HANGING_SIGN_BLOCK = new HangingSignBlock(hangingSignSettings, COCONUT_WOOD_TYPE);
+    public static final Block COCONUT_HANGING_SIGN_BLOCK = new CoconutHangingSign(hangingSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_WALL_SIGN = new CoconutWallSign(wallSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_SIGN = new CoconutSign(signSettings, COCONUT_WOOD_TYPE);
 

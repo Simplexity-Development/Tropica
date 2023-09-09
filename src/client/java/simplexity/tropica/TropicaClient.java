@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
+import net.minecraft.client.render.block.entity.HangingSignBlockEntityRenderer;
 import net.minecraft.client.render.block.entity.SignBlockEntityRenderer;
 import net.minecraft.client.render.entity.BoatEntityRenderer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
@@ -34,8 +35,11 @@ public class TropicaClient implements ClientModInitializer {
 	public void registerBlockEntityRenderers() {
 		BlockEntityRendererFactories.register(TropicaBlockEntity.COCONUT_SIGN_ENTITY, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.COCONUT_WALL_SIGN_ENTITY, SignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(TropicaBlockEntity.COCONUT_HANGING_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
+
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_SIGN_ENTITY, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_WALL_SIGN_ENTITY, SignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_HANGING_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
 	}
 
 	public void registerEntityRenderers() {
