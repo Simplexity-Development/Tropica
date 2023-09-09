@@ -89,6 +89,11 @@ public class TropicaItem {
             if (!user.getAbilities().creativeMode) item.decrement(1);
             return TypedActionResult.success(item, world.isClient());
         }
+
+        @Override
+        public String getTranslationKey() {
+            return "item.tropica.coconut";
+        }
     };
     public static final Item COCONUT_TUFT = new BlockItem(TropicaBlock.COCONUT_TUFT, fullStackItem);
     
