@@ -122,8 +122,10 @@ public class TropicaBlock {
     public static final Block BROWN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
     public static final Block YELLOW_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
     public static final Block GREEN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
-    public static final Block COCONUT_BERRY = new PlantBlock(FabricBlockSettings.copyOf(Blocks.COCOA));
-    public static final Block COCONUT_TUFT = new Block(FabricBlockSettings.copyOf(Blocks.HANGING_ROOTS));
+    public static final Block COCONUT_TUFT = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
+    public static final Block COCONUT_0 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
+    public static final Block COCONUT_1 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
+    public static final Block COCONUT_2 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
     //sand
     public static final Block BLACK_SAND = new SandBlock(1, FabricBlockSettings.copyOf(Blocks.SAND).mapColor(DyeColor.BLACK));
     public static final Block BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE).mapColor(DyeColor.BLACK));
@@ -213,8 +215,10 @@ public class TropicaBlock {
         registerBlock("brown_coconut_block", BROWN_COCONUT_BLOCK, woodenItemsBurnChance, woodenItemsFireSpreadChance);
         registerBlock("yellow_coconut_block", YELLOW_COCONUT_BLOCK, woodenItemsBurnChance, woodenItemsFireSpreadChance);
         registerBlock("green_coconut_block", GREEN_COCONUT_BLOCK, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_berry", COCONUT_BERRY, nonBurningBurnChance, nonBurningFireSpreadChance);
         registerBlock("coconut_tuft", COCONUT_TUFT, veryFlammableBurnChance, veryFlammableSpreadChance);
+        registerBlock("coconut_0", COCONUT_0, nonBurningBurnChance, nonBurningFireSpreadChance);
+        registerBlock("coconut_1", COCONUT_1, nonBurningBurnChance, nonBurningFireSpreadChance);
+        registerBlock("coconut_2", COCONUT_2, nonBurningBurnChance, nonBurningFireSpreadChance);
         // Sand & sandstone
         registerBlock("black_sand", BLACK_SAND, FlammableBlockRegistry.getDefaultInstance().get(Blocks.SAND).getBurnChance(), FlammableBlockRegistry.getDefaultInstance().get(Blocks.SAND).getSpreadChance());
         registerBlock("black_sandstone", BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);

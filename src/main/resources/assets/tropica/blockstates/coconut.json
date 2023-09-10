@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "tropica:block/coconut_tuft"
+    },
+    "age=1": {
+      "model": "tropica:block/coconut_0"
+    },
+    "age=2": {
+      "model": "tropica:block/coconut_1"
+    },
+    "age=3": {
+      "model": "tropica:block/coconut_2"
+    }
+  }
+}
