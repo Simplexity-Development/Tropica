@@ -17,6 +17,14 @@ propagule textures are broken when placed
 * coconut pieces can be eaten to gain 3 hunger points and 6 saturation points
 * two coconut pieces can be put with a bucket in a crafting table to obtain milk
 * coconut has its own woodset
+### Coconut Item/Block
+* Coconut trees spawn both coconut blocks and crops. they are just different ways of obtaining them. they have different utilities gameplay-wise (coconut crops are meant to be farmable and grown back. they are the little models and consist of 3 stages, ripe ripening and unripe. you can’t obtain a coconut drop unless you break a ripe coconut, but whenever you hit a coconut of any kind it will fall and deal 5 hearts of damage if you are hit, it will then drop a coconut item. Whenever you break a coconut of any kind, it will also be replaced by a coconut tuft, which can then grow back into an unripe coconut.
+Coconut blocks, on the other hand, are best seen as ores. they spawn in cubic clusters under the canopy, and they also have the 3 stages which will mature too. they also will fall when hit and you can only obtain 5-9 coconut items on the ripe stage. they will also deal 6 hearts of damage if you get hit. Furthermore, coconut blocks won’t spawn a tuft whenever broken)
+* You can make a coconut fall out of a coconut tree by hitting it with a bow
+* Whenever a coconut crop falls, it will drop a coconut item on impact. blocks, instead, won’t drop coconut items but you will need to break them manually to get the items
+* The coconut crop has 3 ripening stages. unripe (green), ripening (orange), and ripe (brown)
+* Planting a coconut spawns a tree. what i meant for crop is a situation like sweet berry bushes. the crop (little coconut models) will spawn under the tree canopy with the blocks too
+* There are both crops (little coconut models) and full blocks.
 ## Black mangroves
 * black mangroves are cold hardy mangroves which spawn in both mangrove swamps, regular swamps and rarely jungles
 * unlike regular mangroves, they don’t have mangrove blocks but instead black mangrove knees
@@ -26,82 +34,6 @@ propagule textures are broken when placed
 
 # Other notes
 
-`To make your block flammable (that is, can be burned in fire), you may use FlammableBlockRegistry. ` - fabric wiki
-
-Stacktrace when placing a sign:
-```
-[15:09:00] [Render thread/ERROR]: Error executing task on Client
-java.lang.IllegalArgumentException: No model for layer minecraft:sign/coconut#main
-	at net.minecraft.client.render.entity.model.EntityModelLoader.getModelPart(EntityModelLoader.java:17) ~[client-intermediary.jar:?]
-	at net.minecraft.client.render.block.entity.SignBlockEntityRenderer.createSignModel(SignBlockEntityRenderer.java:201) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.screen.ingame.SignEditScreen.init(SignEditScreen.java:32) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.screen.Screen.init(Screen.java:297) ~[client-intermediary.jar:?]
-	at net.minecraft.client.MinecraftClient.setScreen(MinecraftClient.java:1080) ~[client-intermediary.jar:?]
-	at net.minecraft.client.network.ClientPlayerEntity.openEditSignScreen(ClientPlayerEntity.java:596) ~[client-intermediary.jar:?]
-	at net.minecraft.client.network.ClientPlayNetworkHandler.onSignEditorOpen(ClientPlayNetworkHandler.java:1254) ~[client-intermediary.jar:?]
-	at net.minecraft.network.packet.s2c.play.SignEditorOpenS2CPacket.apply(SignEditorOpenS2CPacket.java:29) ~[client-intermediary.jar:?]
-	at net.minecraft.network.packet.s2c.play.SignEditorOpenS2CPacket.apply(SignEditorOpenS2CPacket.java:7) ~[client-intermediary.jar:?]
-	at net.minecraft.network.NetworkThreadUtils.method_11072(NetworkThreadUtils.java:22) ~[client-intermediary.jar:?]
-	at net.minecraft.util.thread.ThreadExecutor.executeTask(ThreadExecutor.java:156) ~[client-intermediary.jar:?]
-	at net.minecraft.util.thread.ReentrantThreadExecutor.executeTask(ReentrantThreadExecutor.java:23) ~[client-intermediary.jar:?]
-	at net.minecraft.util.thread.ThreadExecutor.runTask(ThreadExecutor.java:130) ~[client-intermediary.jar:?]
-	at net.minecraft.util.thread.ThreadExecutor.runTasks(ThreadExecutor.java:115) ~[client-intermediary.jar:?]
-	at net.minecraft.client.MinecraftClient.render(MinecraftClient.java:1175) ~[client-intermediary.jar:?]
-	at net.minecraft.client.MinecraftClient.run(MinecraftClient.java:802) ~[client-intermediary.jar:?]
-	at net.minecraft.client.main.Main.main(Main.java:250) ~[minecraft-1.20.1-client.jar:?]
-	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:468) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) ~[fabric-loader-0.14.22.jar:?]
-	at org.prismlauncher.launcher.impl.StandardLauncher.launch(StandardLauncher.java:88) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.listen(EntryPoint.java:126) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.main(EntryPoint.java:71) ~[NewLaunch.jar:?]
-
-```
-
-Warning when placing a sign:
-```
-[15:10:03] [Server thread/WARN]: Block entity minecraft:sign @ class_2338{x=46, y=63, z=298} state Block{tropica:coconut_sign}[rotation=0,waterlogged=false] invalid for ticking:
-```
-
-Stack trace when trying to place a hanging sign:
-
-```
-[15:10:56] [Render thread/WARN]: Block entity minecraft:hanging_sign @ class_2338{x=46, y=64, z=298} state Block{tropica:coconut_wall_hanging_sign}[facing=west,waterlogged=false] invalid for ticking:
-[15:10:56] [Render thread/WARN]: Failed to load texture: minecraft:textures/gui/hanging_signs/coconut.png
-java.io.FileNotFoundException: minecraft:textures/gui/hanging_signs/coconut.png
-	at net.minecraft.resource.ResourceFactory.method_43043(ResourceFactory.java:21) ~[client-intermediary.jar:?]
-	at java.util.Optional.orElseThrow(Optional.java:403) ~[?:?]
-	at net.minecraft.resource.ResourceFactory.getResourceOrThrow(ResourceFactory.java:21) ~[client-intermediary.jar:?]
-	at net.minecraft.client.texture.ResourceTexture$TextureData.load(ResourceTexture.java:83) ~[client-intermediary.jar:?]
-	at net.minecraft.client.texture.ResourceTexture.loadTextureData(ResourceTexture.java:58) ~[client-intermediary.jar:?]
-	at net.minecraft.client.texture.ResourceTexture.load(ResourceTexture.java:29) ~[client-intermediary.jar:?]
-	at net.minecraft.client.texture.TextureManager.loadTexture(TextureManager.java:97) ~[client-intermediary.jar:?]
-	at net.minecraft.client.texture.TextureManager.registerTexture(TextureManager.java:69) ~[client-intermediary.jar:?]
-	at net.minecraft.client.texture.TextureManager.getTexture(TextureManager.java:119) ~[client-intermediary.jar:?]
-	at com.mojang.blaze3d.systems.RenderSystem._setShaderTexture(RenderSystem.java:1232) ~[client-intermediary.jar:?]
-	at com.mojang.blaze3d.systems.RenderSystem.setShaderTexture(RenderSystem.java:1225) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.DrawContext.drawTexturedQuad(DrawContext.java:387) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.DrawContext.drawTexture(DrawContext.java:378) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.DrawContext.drawTexture(DrawContext.java:362) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.DrawContext.drawTexture(DrawContext.java:374) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.screen.ingame.HangingSignEditScreen.renderSignBackground(HangingSignEditScreen.java:32) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.screen.ingame.AbstractSignEditScreen.renderSign(AbstractSignEditScreen.java:150) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.screen.ingame.AbstractSignEditScreen.render(AbstractSignEditScreen.java:110) ~[client-intermediary.jar:?]
-	at net.minecraft.client.gui.screen.Screen.renderWithTooltip(Screen.java:110) ~[client-intermediary.jar:?]
-	at net.minecraft.client.render.GameRenderer.render(GameRenderer.java:945) ~[client-intermediary.jar:?]
-	at net.minecraft.client.MinecraftClient.render(MinecraftClient.java:1219) ~[client-intermediary.jar:?]
-	at net.minecraft.client.MinecraftClient.run(MinecraftClient.java:802) ~[client-intermediary.jar:?]
-	at net.minecraft.client.main.Main.main(Main.java:250) ~[minecraft-1.20.1-client.jar:?]
-	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:468) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74) ~[fabric-loader-0.14.22.jar:?]
-	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23) ~[fabric-loader-0.14.22.jar:?]
-	at org.prismlauncher.launcher.impl.StandardLauncher.launch(StandardLauncher.java:88) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.listen(EntryPoint.java:126) ~[NewLaunch.jar:?]
-	at org.prismlauncher.EntryPoint.main(EntryPoint.java:71) ~[NewLaunch.jar:?]
-[15:10:56] [Server thread/WARN]: Block entity minecraft:hanging_sign @ class_2338{x=46, y=64, z=298} state Block{tropica:coconut_wall_hanging_sign}[facing=west,waterlogged=false] invalid for ticking:
-
-
-```
 
 ## Handling Custom Boat Types
 
