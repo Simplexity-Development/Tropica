@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "tropica:coconut_logs"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "item": "tropica:coconut_planks"
+  }
+}

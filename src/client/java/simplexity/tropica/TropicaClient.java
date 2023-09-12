@@ -58,6 +58,18 @@ public class TropicaClient implements ClientModInitializer {
 
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_LEAVES, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_PROPAGULE, RenderLayer.getCutout());
+		
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_DOOR, RenderLayer.getTranslucent());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_DOOR, RenderLayer.getCutout());
+		
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_TUFT, RenderLayer.getCutout());
+		
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.HAMMER_CORAL, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.DEAD_HAMMER_CORAL, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.HAMMER_CORAL_WALL_FAN, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.DEAD_HAMMER_CORAL_WALL_FAN, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.HAMMER_CORAL_FAN, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.DEAD_HAMMER_CORAL_FAN, RenderLayer.getCutout());
 	}
 
 	public void registerColorProviders() {
