@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"simplexity.tropica.TropicaClient"
+		],
+		"terrablender": [
+			"simplexity.tropica.terrablender.TerrablenderHooks"
 		]
 	},
 	"mixins": [
