@@ -1,0 +1,13 @@
+{
+  "coconut_break": {
+    "subtitle": "subtitles.entity.coconut.break",
+    "sounds": [
+      "tropica:coconut_break_1",
+      "tropica:coconut_break_2",
+      "tropica:coconut_break_3",
+      "tropica:coconut_break_4",
+      "tropica:coconut_break_5"
+    ]
+  }
+}
+

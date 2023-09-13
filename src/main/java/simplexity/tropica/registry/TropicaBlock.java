@@ -118,11 +118,11 @@ public class TropicaBlock {
     public static final Block COCONUT_LEAVES = new Block(leavesSettings);
     public static final Block COCONUT_SHOOT = new PropaguleBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_SAPLING));
     //Etc
-    public static final Block BLACK_MANGROVE_KNEES = new Block(FabricBlockSettings.copyOf(Blocks.MANGROVE_ROOTS));
+    public static final Block BLACK_MANGROVE_KNEES = new Block(FabricBlockSettings.copyOf(Blocks.MANGROVE_ROOTS).nonOpaque());
     public static final Block BROWN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
     public static final Block YELLOW_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
     public static final Block GREEN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
-    public static final Block COCONUT_TUFT = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
+    public static final Block COCONUT_TUFT = new Block(FabricBlockSettings.copyOf(Blocks.COCOA).nonOpaque().breakInstantly());
     public static final Block COCONUT_0 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
     public static final Block COCONUT_1 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
     public static final Block COCONUT_2 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));

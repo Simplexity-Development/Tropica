@@ -3,9 +3,20 @@
   "category": "building",
   "group": "planks",
   "ingredients": [
-    {
-      "tag": "tropica:coconut_logs"
-    }
+    [
+      {
+        "item": "tropica:coconut_log"
+      },
+      {
+        "item": "tropica:stripped_coconut_log"
+      },
+      {
+        "item": "tropica:coconut_wood"
+      },
+      {
+        "item": "tropica:stripped_coconut_wood"
+      }
+    ]
   ],
   "result": {
     "count": 4,

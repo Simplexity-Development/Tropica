@@ -63,6 +63,7 @@ public class TropicaClient implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_DOOR, RenderLayer.getCutout());
 		
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_TUFT, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_KNEES, RenderLayer.getCutout());
 		
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.HAMMER_CORAL, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.DEAD_HAMMER_CORAL, RenderLayer.getCutout());
