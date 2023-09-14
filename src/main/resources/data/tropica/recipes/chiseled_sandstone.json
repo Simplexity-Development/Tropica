@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "minecraft:sandstone_slab"
+      "item": "tropica:black_sandstone_slab"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "#"
   ],
   "result": {
-    "item": "minecraft:chiseled_sandstone"
+    "item": "tropica:chiseled_black_sandstone"
   },
   "show_notification": true
 }

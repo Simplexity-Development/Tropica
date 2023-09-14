@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "minecraft:cut_sandstone"
+      "item": "tropica:cut_black_sandstone"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
   ],
   "result": {
     "count": 6,
-    "item": "minecraft:cut_sandstone_slab"
+    "item": "tropica:cut_black_sandstone_slab"
   },
   "show_notification": true
 }

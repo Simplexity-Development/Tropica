@@ -4,7 +4,7 @@
   "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
-    "item": "minecraft:sandstone"
+    "item": "tropica:black_sandstone"
   },
-  "result": "minecraft:smooth_sandstone"
+  "result": "tropica:smooth_black_sandstone"
 }

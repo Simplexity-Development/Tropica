@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "minecraft:sand"
+      "item": "tropica:black_sand"
     }
   },
   "pattern": [
@@ -11,7 +11,7 @@
     "##"
   ],
   "result": {
-    "item": "minecraft:sandstone"
+    "item": "tropica:black_sandstone"
   },
   "show_notification": true
 }

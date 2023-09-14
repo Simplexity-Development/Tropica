@@ -3,7 +3,7 @@
   "category": "building",
   "key": {
     "#": {
-      "item": "minecraft:smooth_sandstone"
+      "item": "tropica:smooth_black_sandstone"
     }
   },
   "pattern": [
@@ -13,7 +13,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "minecraft:smooth_sandstone_stairs"
+    "item": "tropica:smooth_black_sandstone_stairs"
   },
   "show_notification": true
 }

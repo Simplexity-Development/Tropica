@@ -4,13 +4,13 @@
   "key": {
     "#": [
       {
-        "item": "minecraft:sandstone"
+        "item": "tropica:black_sandstone"
       },
       {
-        "item": "minecraft:chiseled_sandstone"
+        "item": "tropica:chiseled_black_sandstone"
       },
       {
-        "item": "minecraft:cut_sandstone"
+        "item": "tropica:cut_black_sandstone"
       }
     ]
   },
@@ -21,7 +21,7 @@
   ],
   "result": {
     "count": 4,
-    "item": "minecraft:sandstone_stairs"
+    "item": "tropica:black_sandstone_stairs"
   },
   "show_notification": true
 }

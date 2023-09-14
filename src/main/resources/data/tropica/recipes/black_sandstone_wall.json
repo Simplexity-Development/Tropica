@@ -3,7 +3,7 @@
   "category": "misc",
   "key": {
     "#": {
-      "item": "minecraft:sandstone"
+      "item": "tropica:black_sandstone"
     }
   },
   "pattern": [
@@ -12,7 +12,7 @@
   ],
   "result": {
     "count": 6,
-    "item": "minecraft:sandstone_wall"
+    "item": "tropica:black_sandstone_wall"
   },
   "show_notification": true
 }

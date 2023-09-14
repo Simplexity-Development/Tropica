@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "tropica:black_sandstone",
+    "tropica:black_sandstone_wall",
+    "tropica:black_sandstone_slab",
+    "tropica:black_sandstone_stairs",
+    "tropica:cut_black_sandstone",
+    "tropica:cut_black_sandstone_slab",
+    "tropica:smooth_black_sandstone",
+    "tropica:smooth_black_sandstone_slab",
+    "tropica:smooth_black_sandstone_stairs",
+    "tropica:chiseled_black_sandstone"
+  ]
+}
