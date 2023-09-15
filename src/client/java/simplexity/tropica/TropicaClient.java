@@ -36,10 +36,12 @@ public class TropicaClient implements ClientModInitializer {
 		BlockEntityRendererFactories.register(TropicaBlockEntity.COCONUT_SIGN_ENTITY, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.COCONUT_WALL_SIGN_ENTITY, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.COCONUT_HANGING_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(TropicaBlockEntity.COCONUT_HANGING_WALL_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
 
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_SIGN_ENTITY, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_WALL_SIGN_ENTITY, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_HANGING_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_HANGING_WALL_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
 	}
 
 	public void registerEntityRenderers() {

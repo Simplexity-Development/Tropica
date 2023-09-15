@@ -10,13 +10,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import simplexity.tropica.tileentity.TropicaHangingSignBlockEntity;
+import simplexity.tropica.tileentity.TropicaHangingWallSignBlockEntity;
 
 @Mixin(ClientPlayerEntity.class)
 public abstract class EditSignScreenMixin {
 
     @Inject(method = "openEditSignScreen", at = @At("HEAD"), cancellable = true)
     public void editSignScreen(SignBlockEntity sign, boolean front, CallbackInfo ci) {
-        if (sign instanceof TropicaHangingSignBlockEntity) {
+        if (sign instanceof TropicaHangingSignBlockEntity || sign instanceof TropicaHangingWallSignBlockEntity) {
             MinecraftClient client = getClient();
             client.setScreen(new HangingSignEditScreen(sign, front, client.shouldFilterText()));
             ci.cancel();
