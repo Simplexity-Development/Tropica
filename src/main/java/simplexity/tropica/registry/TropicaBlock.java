@@ -16,29 +16,24 @@ import simplexity.tropica.Tropica;
 import simplexity.tropica.mixin.WoodTypeMixin;
 import simplexity.tropica.registry.block.*;
 
+import java.util.ArrayList;
+
 import static simplexity.tropica.registry.TropicaItem.COCONUT_BOAT;
 
 public class TropicaBlock {
     
+    public static final ArrayList<Block> woodenBlocks = new ArrayList<>();
+    public static final ArrayList<Block> nonBurningWoodenBlocks = new ArrayList<>();
+    public static final ArrayList<Block> logBlocks = new ArrayList<>();
+    public static final ArrayList<Block> highlyFlammableWoodenBlocks = new ArrayList<>();
+    public static final ArrayList<Block> coralBlocks = new ArrayList<>();
+    public static final ArrayList<Block> coralFans = new ArrayList<>();
+    public static final ArrayList<Block> leavesBlocks = new ArrayList<>();
+    public static final ArrayList<Block> saplingBlocks = new ArrayList<>();
+    public static final ArrayList<Block> plantBlocks = new ArrayList<>();
+    public static final ArrayList<Block> stoneBlocks = new ArrayList<>();
+    public static final ArrayList<Block> sandBlocks = new ArrayList<>();
     private static final String tropica = Tropica.tropica;
-    private static final int logsBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_LOG).getBurnChance();
-    private static final int woodenItemsBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_PLANKS).getBurnChance();
-    private static final int logsFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_LOG).getSpreadChance();
-    private static final int woodenItemsFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_PLANKS).getSpreadChance();
-    private static final int nonBurningBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_SIGN).getBurnChance();
-    private static final int nonBurningFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_SIGN).getSpreadChance();
-    private static final int veryFlammableBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.HAY_BLOCK).getBurnChance();
-    private static final int veryFlammableSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.HAY_BLOCK).getSpreadChance();
-    private static final int leavesBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_LEAVES).getBurnChance();
-    private static final int leavesFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_LEAVES).getSpreadChance();
-    private static final int saplingBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_SAPLING).getBurnChance();
-    private static final int saplingFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.OAK_SAPLING).getSpreadChance();
-    private static final int sandstoneBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.SANDSTONE).getBurnChance();
-    private static final int sandstoneFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.SANDSTONE).getSpreadChance();
-    private static final int coralBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_BLOCK).getBurnChance();
-    private static final int coralFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_BLOCK).getSpreadChance();
-    private static final int coralFanBurnChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_FAN).getBurnChance();
-    private static final int coralFanFireSpreadChance = FlammableBlockRegistry.getDefaultInstance().get(Blocks.BRAIN_CORAL_FAN).getSpreadChance();
     public static final BlockState defaultStairState = Blocks.OAK_STAIRS.getDefaultState();
     public static final FabricBlockSettings logSettings = FabricBlockSettings.copyOf(Blocks.OAK_LOG);
     public static final FabricBlockSettings woodSettings = FabricBlockSettings.copyOf(Blocks.OAK_WOOD);
@@ -85,7 +80,7 @@ public class TropicaBlock {
     public static final Block COCONUT_HANGING_SIGN_BLOCK = new CoconutHangingSign(hangingSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_WALL_SIGN = new CoconutWallSign(wallSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_SIGN = new CoconutSign(signSettings, COCONUT_WOOD_TYPE);
-
+    
     //Fence
     public static final Block BLACK_MANGROVE_FENCE = new FenceBlock(fenceSettings);
     public static final Block BLACK_MANGROVE_FENCE_GATE = new FenceGateBlock(fenceGateSettings, BLACK_MANGROVE_WOOD_TYPE);
@@ -148,100 +143,254 @@ public class TropicaBlock {
     
     public static final Block DEAD_HAMMER_CORAL_WALL_FAN = new DeadCoralWallFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_WALL_FAN));
     public static final Block HAMMER_CORAL_WALL_FAN = new CoralWallFanBlock(DEAD_HAMMER_CORAL_WALL_FAN, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_WALL_FAN));
-
-    private static void registerBlock(String name, Block block, Integer burnChance, Integer spreadChance) {
+    
+    private static void registerBlock(String name, Block block, ArrayList<Block> arrayList) {
         Registry.register(Registries.BLOCK, new Identifier(tropica, name), block);
-        FlammableBlockRegistry.getDefaultInstance().add(block, burnChance, spreadChance);
-        
+        arrayList.add(block);
     }
-
+    
     public static void registerWoodTypes() {
         WoodTypeMixin.invokeRegister(COCONUT_WOOD_TYPE);
         WoodTypeMixin.invokeRegister(BLACK_MANGROVE_WOOD_TYPE);
     }
     
+    public static void setFlammability(ArrayList<Block> arrayList, Block referenceBlock) {
+        int burnChance = FlammableBlockRegistry.getDefaultInstance().get(referenceBlock).getBurnChance();
+        int spreadChance = FlammableBlockRegistry.getDefaultInstance().get(referenceBlock).getSpreadChance();
+        for (Block block : arrayList) {
+            FlammableBlockRegistry.getDefaultInstance().add(block, burnChance, spreadChance);
+        }
+    }
+    public static void registerBlocksFlammability(){
+        setFlammability(woodenBlocks, Blocks.OAK_PLANKS);
+        setFlammability(nonBurningWoodenBlocks, Blocks.OAK_BUTTON);
+        setFlammability(logBlocks, Blocks.OAK_LOG);
+        setFlammability(highlyFlammableWoodenBlocks, Blocks.HAY_BLOCK);
+        setFlammability(coralBlocks, Blocks.BRAIN_CORAL_BLOCK);
+        setFlammability(coralFans, Blocks.BRAIN_CORAL);
+        setFlammability(leavesBlocks, Blocks.OAK_LEAVES);
+        setFlammability(saplingBlocks, Blocks.OAK_SAPLING);
+        setFlammability(plantBlocks, Blocks.SUNFLOWER);
+        setFlammability(stoneBlocks, Blocks.SANDSTONE);
+        setFlammability(sandBlocks, Blocks.SAND);
+    }
     public static void registerModBlocks() {
         //TREE STUFF
         //Doors
-        registerBlock("black_mangrove_trapdoor", BLACK_MANGROVE_TRAPDOOR, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("black_mangrove_door", BLACK_MANGROVE_DOOR, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_trapdoor", COCONUT_TRAPDOOR, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_door", COCONUT_DOOR, woodenItemsBurnChance, woodenItemsFireSpreadChance);
+        registerBlock("black_mangrove_trapdoor",
+                BLACK_MANGROVE_TRAPDOOR,
+                woodenBlocks);
+        registerBlock("black_mangrove_door",
+                BLACK_MANGROVE_DOOR,
+                woodenBlocks);
+        registerBlock("coconut_trapdoor",
+                COCONUT_TRAPDOOR,
+                woodenBlocks);
+        registerBlock("coconut_door",
+                COCONUT_DOOR,
+                woodenBlocks);
         //Redstone
-        registerBlock("black_mangrove_pressure_plate", BLACK_MANGROVE_PRESSURE_PLATE, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("black_mangrove_button", BLACK_MANGROVE_BUTTON, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_pressure_plate", COCONUT_PRESSURE_PLATE, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_button", COCONUT_BUTTON, nonBurningBurnChance, nonBurningFireSpreadChance);
+        registerBlock("black_mangrove_pressure_plate",
+                BLACK_MANGROVE_PRESSURE_PLATE,
+                nonBurningWoodenBlocks);
+        registerBlock("black_mangrove_button",
+                BLACK_MANGROVE_BUTTON,
+                nonBurningWoodenBlocks);
+        registerBlock("coconut_pressure_plate",
+                COCONUT_PRESSURE_PLATE,
+                nonBurningWoodenBlocks);
+        registerBlock("coconut_button",
+                COCONUT_BUTTON,
+                nonBurningWoodenBlocks);
         //Signs
-        registerBlock("black_mangrove_sign", BLACK_MANGROVE_SIGN, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("black_mangrove_wall_sign", BLACK_MANGROVE_WALL_SIGN, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("black_mangrove_hanging_sign", BLACK_MANGROVE_HANGING_SIGN_BLOCK, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("black_mangrove_wall_hanging_sign", BLACK_MANGROVE_WALL_HANGING_SIGN_BLOCK, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_sign", COCONUT_SIGN, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_wall_sign", COCONUT_WALL_SIGN, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_hanging_sign", COCONUT_HANGING_SIGN_BLOCK, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_wall_hanging_sign", COCONUT_WALL_HANGING_SIGN_BLOCK, nonBurningBurnChance, nonBurningFireSpreadChance);
+        registerBlock("black_mangrove_sign",
+                BLACK_MANGROVE_SIGN,
+                nonBurningWoodenBlocks);
+        registerBlock("black_mangrove_wall_sign",
+                BLACK_MANGROVE_WALL_SIGN,
+                nonBurningWoodenBlocks);
+        registerBlock("black_mangrove_hanging_sign",
+                BLACK_MANGROVE_HANGING_SIGN_BLOCK,
+                nonBurningWoodenBlocks);
+        registerBlock("black_mangrove_wall_hanging_sign",
+                BLACK_MANGROVE_WALL_HANGING_SIGN_BLOCK,
+                nonBurningWoodenBlocks);
+        registerBlock("coconut_sign",
+                COCONUT_SIGN,
+                nonBurningWoodenBlocks);
+        registerBlock("coconut_wall_sign",
+                COCONUT_WALL_SIGN,
+                nonBurningWoodenBlocks);
+        registerBlock("coconut_hanging_sign",
+                COCONUT_HANGING_SIGN_BLOCK,
+                nonBurningWoodenBlocks);
+        registerBlock("coconut_wall_hanging_sign",
+                COCONUT_WALL_HANGING_SIGN_BLOCK,
+                nonBurningWoodenBlocks);
         //Fence
-        registerBlock("black_mangrove_fence", BLACK_MANGROVE_FENCE, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("black_mangrove_fence_gate", BLACK_MANGROVE_FENCE_GATE, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_fence", COCONUT_FENCE, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_fence_gate", COCONUT_FENCE_GATE, woodenItemsBurnChance, woodenItemsFireSpreadChance);
+        registerBlock("black_mangrove_fence",
+                BLACK_MANGROVE_FENCE,
+                woodenBlocks);
+        registerBlock("black_mangrove_fence_gate",
+                BLACK_MANGROVE_FENCE_GATE,
+                woodenBlocks);
+        registerBlock("coconut_fence",
+                COCONUT_FENCE,
+                woodenBlocks);
+        registerBlock("coconut_fence_gate",
+                COCONUT_FENCE_GATE,
+                woodenBlocks);
         //Log
-        registerBlock("black_mangrove_log", BLACK_MANGROVE_LOG, logsBurnChance, logsFireSpreadChance);
-        registerBlock("stripped_black_mangrove_log", STRIPPED_BLACK_MANGROVE_LOG, logsBurnChance, logsFireSpreadChance);
-        registerBlock("coconut_log", COCONUT_LOG, logsBurnChance, logsFireSpreadChance);
-        registerBlock("coconut_sheath", COCONUT_SHEATH, veryFlammableBurnChance, veryFlammableSpreadChance);
-        registerBlock("stripped_coconut_log", STRIPPED_COCONUT_LOG, logsBurnChance, logsFireSpreadChance);
+        registerBlock("black_mangrove_log",
+                BLACK_MANGROVE_LOG,
+                logBlocks);
+        registerBlock("stripped_black_mangrove_log",
+                STRIPPED_BLACK_MANGROVE_LOG,
+                logBlocks);
+        registerBlock("coconut_log",
+                COCONUT_LOG,
+                logBlocks);
+        registerBlock("coconut_sheath",
+                COCONUT_SHEATH,
+                highlyFlammableWoodenBlocks);
+        registerBlock("stripped_coconut_log",
+                STRIPPED_COCONUT_LOG,
+                logBlocks);
         //Wood
-        registerBlock("black_mangrove_wood", BLACK_MANGROVE_WOOD, logsBurnChance, logsFireSpreadChance);
-        registerBlock("stripped_black_mangrove_wood", STRIPPED_BLACK_MANGROVE_WOOD, logsBurnChance, logsFireSpreadChance);
-        registerBlock("coconut_wood", COCONUT_WOOD, veryFlammableBurnChance, veryFlammableSpreadChance);
-        registerBlock("coconut_sheath_wood", COCONUT_SHEATH_WOOD, logsBurnChance, logsFireSpreadChance);
-        registerBlock("stripped_coconut_wood", STRIPPED_COCONUT_WOOD, logsBurnChance, logsFireSpreadChance);
+        registerBlock("black_mangrove_wood",
+                BLACK_MANGROVE_WOOD,
+                logBlocks);
+        registerBlock("stripped_black_mangrove_wood",
+                STRIPPED_BLACK_MANGROVE_WOOD,
+                logBlocks);
+        registerBlock("coconut_wood",
+                COCONUT_WOOD,
+                logBlocks);
+        registerBlock("coconut_sheath_wood",
+                COCONUT_SHEATH_WOOD,
+                highlyFlammableWoodenBlocks);
+        registerBlock("stripped_coconut_wood",
+                STRIPPED_COCONUT_WOOD,
+                logBlocks);
         //Planks/Slabs/Stairs
-        registerBlock("black_mangrove_planks", BLACK_MANGROVE_PLANKS, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("black_mangrove_slab", BLACK_MANGROVE_SLAB, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("black_mangrove_stairs", BLACK_MANGROVE_STAIRS, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_planks", COCONUT_PLANKS, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_slab", COCONUT_SLAB, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_stairs", COCONUT_STAIRS, woodenItemsBurnChance, woodenItemsFireSpreadChance);
+        registerBlock("black_mangrove_planks",
+                BLACK_MANGROVE_PLANKS,
+                woodenBlocks);
+        registerBlock("black_mangrove_slab",
+                BLACK_MANGROVE_SLAB,
+                woodenBlocks);
+        registerBlock("black_mangrove_stairs",
+                BLACK_MANGROVE_STAIRS,
+                woodenBlocks);
+        registerBlock("coconut_planks",
+                COCONUT_PLANKS,
+                woodenBlocks);
+        registerBlock("coconut_slab",
+                COCONUT_SLAB,
+                woodenBlocks);
+        registerBlock("coconut_stairs",
+                COCONUT_STAIRS,
+                woodenBlocks);
         //Leaves/saplings
-        registerBlock("black_mangrove_leaves", BLACK_MANGROVE_LEAVES, leavesBurnChance, leavesFireSpreadChance);
-        registerBlock("black_mangrove_propagule", BLACK_MANGROVE_PROPAGULE, saplingBurnChance, saplingFireSpreadChance);
-        registerBlock("coconut_leaves", COCONUT_LEAVES, leavesBurnChance, leavesFireSpreadChance);
-        registerBlock("coconut_shoot", COCONUT_SHOOT, saplingBurnChance, saplingFireSpreadChance);
+        registerBlock("black_mangrove_leaves",
+                BLACK_MANGROVE_LEAVES,
+                leavesBlocks);
+        registerBlock("black_mangrove_propagule",
+                BLACK_MANGROVE_PROPAGULE,
+                saplingBlocks);
+        registerBlock("coconut_leaves",
+                COCONUT_LEAVES,
+                leavesBlocks);
+        registerBlock("coconut_shoot",
+                COCONUT_SHOOT,
+                saplingBlocks);
         //Tree ETC
-        registerBlock("black_mangrove_knees", BLACK_MANGROVE_KNEES, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("brown_coconut_block", BROWN_COCONUT_BLOCK, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("yellow_coconut_block", YELLOW_COCONUT_BLOCK, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("green_coconut_block", GREEN_COCONUT_BLOCK, woodenItemsBurnChance, woodenItemsFireSpreadChance);
-        registerBlock("coconut_tuft", COCONUT_TUFT, veryFlammableBurnChance, veryFlammableSpreadChance);
-        registerBlock("coconut_0", COCONUT_0, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_1", COCONUT_1, nonBurningBurnChance, nonBurningFireSpreadChance);
-        registerBlock("coconut_2", COCONUT_2, nonBurningBurnChance, nonBurningFireSpreadChance);
+        registerBlock("black_mangrove_knees",
+                BLACK_MANGROVE_KNEES,
+                woodenBlocks);
+        registerBlock("brown_coconut_block",
+                BROWN_COCONUT_BLOCK,
+                woodenBlocks);
+        registerBlock("yellow_coconut_block",
+                YELLOW_COCONUT_BLOCK,
+                woodenBlocks);
+        registerBlock("green_coconut_block",
+                GREEN_COCONUT_BLOCK,
+                woodenBlocks);
+        registerBlock("coconut_tuft",
+                COCONUT_TUFT,
+                plantBlocks);
+        registerBlock("coconut_0",
+                COCONUT_0,
+                plantBlocks);
+        registerBlock("coconut_1",
+                COCONUT_1,
+                plantBlocks);
+        registerBlock("coconut_2",
+                COCONUT_2,
+                plantBlocks);
         // Sand & sandstone
-        registerBlock("black_sand", BLACK_SAND, FlammableBlockRegistry.getDefaultInstance().get(Blocks.SAND).getBurnChance(), FlammableBlockRegistry.getDefaultInstance().get(Blocks.SAND).getSpreadChance());
-        registerBlock("black_sandstone", BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("black_sandstone_stairs", BLACK_SANDSTONE_STAIRS, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("black_sandstone_slab", BLACK_SANDSTONE_SLAB, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("black_sandstone_wall", BLACK_SANDSTONE_WALL, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("cut_black_sandstone", CUT_BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("cut_black_sandstone_slab", CUT_BLACK_SANDSTONE_SLAB, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("smooth_black_sandstone", SMOOTH_BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("smooth_black_sandstone_stairs", SMOOTH_BLACK_SANDSTONE_STAIRS, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("smooth_black_sandstone_slab", SMOOTH_BLACK_SANDSTONE_SLAB, sandstoneBurnChance, sandstoneFireSpreadChance);
-        registerBlock("chiseled_black_sandstone", CHISELED_BLACK_SANDSTONE, sandstoneBurnChance, sandstoneFireSpreadChance);
+        registerBlock("black_sand",
+                BLACK_SAND,
+                sandBlocks);
+        registerBlock("black_sandstone",
+                BLACK_SANDSTONE,
+                stoneBlocks);
+        registerBlock("black_sandstone_stairs",
+                BLACK_SANDSTONE_STAIRS,
+                stoneBlocks);
+        registerBlock("black_sandstone_slab",
+                BLACK_SANDSTONE_SLAB,
+                stoneBlocks);
+        registerBlock("black_sandstone_wall",
+                BLACK_SANDSTONE_WALL,
+                stoneBlocks);
+        registerBlock("cut_black_sandstone",
+                CUT_BLACK_SANDSTONE,
+                stoneBlocks);
+        registerBlock("cut_black_sandstone_slab",
+                CUT_BLACK_SANDSTONE_SLAB,
+                stoneBlocks);
+        registerBlock("smooth_black_sandstone",
+                SMOOTH_BLACK_SANDSTONE,
+                stoneBlocks);
+        registerBlock("smooth_black_sandstone_stairs",
+                SMOOTH_BLACK_SANDSTONE_STAIRS,
+                stoneBlocks);
+        registerBlock("smooth_black_sandstone_slab",
+                SMOOTH_BLACK_SANDSTONE_SLAB,
+                stoneBlocks);
+        registerBlock("chiseled_black_sandstone",
+                CHISELED_BLACK_SANDSTONE,
+                stoneBlocks);
         // Coral
-        registerBlock("dead_hammer_coral_block", DEAD_HAMMER_CORAL_BLOCK, coralBurnChance, coralFireSpreadChance);
-        registerBlock("hammer_coral_block", HAMMER_CORAL_BLOCK, coralBurnChance, coralFireSpreadChance);
-        registerBlock("dead_hammer_coral", DEAD_HAMMER_CORAL, coralFanBurnChance, coralFanFireSpreadChance);
-        registerBlock("hammer_coral", HAMMER_CORAL, coralFanBurnChance, coralFanFireSpreadChance);
-        registerBlock("dead_hammer_coral_fan", DEAD_HAMMER_CORAL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
-        registerBlock("hammer_coral_fan", HAMMER_CORAL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
-        registerBlock("dead_hammer_coral_wall_fan", DEAD_HAMMER_CORAL_WALL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
-        registerBlock("hammer_coral_wall_fan", HAMMER_CORAL_WALL_FAN, coralFanBurnChance, coralFanFireSpreadChance);
+        registerBlock("dead_hammer_coral_block",
+                DEAD_HAMMER_CORAL_BLOCK,
+                coralBlocks);
+        registerBlock("hammer_coral_block",
+                HAMMER_CORAL_BLOCK,
+                coralBlocks);
+        registerBlock("dead_hammer_coral",
+                DEAD_HAMMER_CORAL,
+                coralFans);
+        registerBlock("hammer_coral",
+                HAMMER_CORAL,
+                coralFans);
+        registerBlock("dead_hammer_coral_fan",
+                DEAD_HAMMER_CORAL_FAN,
+                coralFans);
+        registerBlock("hammer_coral_fan",
+                HAMMER_CORAL_FAN,
+                coralFans);
+        registerBlock("dead_hammer_coral_wall_fan",
+                DEAD_HAMMER_CORAL_WALL_FAN,
+                coralFans);
+        registerBlock("hammer_coral_wall_fan",
+                HAMMER_CORAL_WALL_FAN,
+                coralFans);
     }
     
+    @SuppressWarnings("UnstableApiUsage")
     public static void registerCreativePlacements() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
             content.addAfter(Items.JUNGLE_BUTTON, COCONUT_LOG);

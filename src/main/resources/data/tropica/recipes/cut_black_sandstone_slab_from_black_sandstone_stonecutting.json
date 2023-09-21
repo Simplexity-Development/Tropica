@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 2,
-  "ingredient": {
-    "item": "tropica:black_sandstone"
-  },
-  "result": "tropica:cut_black_sandstone_slab"
-}

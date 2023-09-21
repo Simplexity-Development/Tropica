@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "count": 1,
-  "ingredient": {
-    "item": "tropica:black_sandstone"
-  },
-  "result": "tropica:chiseled_black_sandstone"
-}

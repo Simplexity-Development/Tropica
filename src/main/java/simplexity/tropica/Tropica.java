@@ -17,6 +17,7 @@ public class Tropica implements ModInitializer {
     public void onInitialize() {
         TropicaBlock.registerWoodTypes();
         TropicaBlock.registerModBlocks();
+        TropicaBlock.registerBlocksFlammability();
         TropicaItem.registerModItems();
         TropicaBlock.registerCreativePlacements();
         TropicaBlockEntity.registerBlockEntities();

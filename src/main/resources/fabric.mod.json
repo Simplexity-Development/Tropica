@@ -3,9 +3,9 @@
 	"id": "tropica",
 	"version": "${version}",
 	"name": "Tropica",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"description": "Adds more tropical items and blocks to the game",
 	"authors": [
-		"Me!"
+		"Rhythmic, Peashooter101, Enri, []"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"simplexity.tropica.TropicaClient"
+		],
+		"fabric-datagen": [
+			"simplexity.tropica.datagen.DataGeneration"
 		],
 		"terrablender": [
 			"simplexity.tropica.terrablender.TerrablenderHooks"
