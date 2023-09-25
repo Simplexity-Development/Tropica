@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "tropica:coconut_tuft",
+    "tropica:coconut_0",
+    "tropica:coconut_1",
+    "tropica:coconut_2",
+    "tropica:black_mangrove_leaves",
+    "tropica:coconut_leaves",
+    "tropica:dead_hammer_coral",
+    "tropica:hammer_coral",
+    "tropica:dead_hammer_coral_fan",
+    "tropica:hammer_coral_fan",
+    "tropica:dead_hammer_coral_wall_fan",
+    "tropica:hammer_coral_wall_fan"
+  ]
+}
