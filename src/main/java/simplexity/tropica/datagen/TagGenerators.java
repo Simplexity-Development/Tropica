@@ -122,6 +122,8 @@ public class TagGenerators extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(CORALS)
                 .add(TropicaBlock.HAMMER_CORAL)
                 .add(TropicaBlock.HAMMER_CORAL_FAN);
+        getOrCreateTagBuilder(CORAL_BLOCKS)
+                .add(TropicaBlock.HAMMER_CORAL_BLOCK);
         getOrCreateTagBuilder(LAVA_POOL_STONE_CANNOT_REPLACE)
                 .add(TropicaBlock.COCONUT_LOG)
                 .add(TropicaBlock.BLACK_MANGROVE_LOG);
@@ -147,7 +149,6 @@ public class TagGenerators extends FabricTagProvider.BlockTagProvider {
         addArrayListBlocksToTag(TropicaBlock.logBlocks, LOGS);
         addArrayListBlocksToTag(TropicaBlock.logBlocks, LOGS_THAT_BURN);
         addArrayListBlocksToTag(TropicaBlock.logBlocks, COMPLETES_FIND_TREE_TUTORIAL);
-        addArrayListBlocksToTag(TropicaBlock.coralBlocks, CORAL_BLOCKS);
         addArrayListBlocksToTag(TropicaBlock.leavesBlocks, LEAVES);
         addArrayListBlocksToTag(TropicaBlock.sandBlocks, SAND);
         addArrayListBlocksToTag(TropicaBlock.sandBlocks, SMELTS_TO_GLASS);
