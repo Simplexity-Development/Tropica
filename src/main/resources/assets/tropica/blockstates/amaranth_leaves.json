@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/leaves",
+  "variants": {
+    "": {
+      "model": "tropica:block/amaranth_leaves"
+    }
+  }
+}

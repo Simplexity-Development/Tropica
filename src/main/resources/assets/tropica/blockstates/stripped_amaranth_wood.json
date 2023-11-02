@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "tropica:block/stripped_amaranth_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "tropica:block/stripped_amaranth_wood"
+    },
+    "axis=z": {
+      "model": "tropica:block/stripped_amaranth_wood",
+      "x": 90
+    }
+  }
+}

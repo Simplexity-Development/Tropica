@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "tropica:amaranth_log",
+    "tropica:stripped_amaranth_log",
+    "tropica:amaranth_wood",
+    "tropica:stripped_amaranth_wood"
+  ]
+}

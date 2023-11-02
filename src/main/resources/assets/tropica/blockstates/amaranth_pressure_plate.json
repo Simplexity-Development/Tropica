@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "powered=false": {
+      "model": "tropica:block/amaranth_pressure_plate"
+    },
+    "powered=true": {
+      "model": "tropica:block/amaranth_pressure_plate_down"
+    }
+  }
+}

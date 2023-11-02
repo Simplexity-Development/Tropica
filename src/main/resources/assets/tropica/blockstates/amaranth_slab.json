@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "tropica:block/amaranth_slab"
+    },
+    "type=double": {
+      "model": "tropica:block/amaranth_planks"
+    },
+    "type=top": {
+      "model": "tropica:block/amaranth_slab_top"
+    }
+  }
+}

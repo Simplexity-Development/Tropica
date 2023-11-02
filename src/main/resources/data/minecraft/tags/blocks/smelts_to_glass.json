@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "tropica:white_sand",
     "tropica:black_sand"
   ]
 }

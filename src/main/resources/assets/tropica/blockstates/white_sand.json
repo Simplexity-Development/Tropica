@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "tropica:block/white_sand"
+      },
+      {
+        "model": "tropica:block/white_sand",
+        "y": 90
+      },
+      {
+        "model": "tropica:block/white_sand",
+        "y": 180
+      },
+      {
+        "model": "tropica:block/white_sand",
+        "y": 270
+      }
+    ]
+  }
+}

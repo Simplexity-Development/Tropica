@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
+import net.minecraft.block.sapling.AcaciaSaplingGenerator;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.item.Items;
 import net.minecraft.registry.Registries;
@@ -57,19 +58,25 @@ public class TropicaBlock {
     //Block Set Type and Wood Type Declarations
     public static final BlockSetType BLACK_MANGROVE_BLOCK_SET_TYPE = new BlockSetType("black_mangrove", true, BlockSoundGroup.WOOD, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE, SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON);
     public static final BlockSetType COCONUT_BLOCK_SET_TYPE = new BlockSetType("coconut", true, BlockSoundGroup.WOOD, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE, SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON);
+    public static final BlockSetType AMARANTH_BLOCK_SET_TYPE = new BlockSetType("amaranth", true, BlockSoundGroup.WOOD, SoundEvents.BLOCK_WOODEN_DOOR_CLOSE, SoundEvents.BLOCK_WOODEN_DOOR_OPEN, SoundEvents.BLOCK_WOODEN_TRAPDOOR_CLOSE, SoundEvents.BLOCK_WOODEN_TRAPDOOR_OPEN, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_OFF, SoundEvents.BLOCK_WOODEN_PRESSURE_PLATE_CLICK_ON, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_OFF, SoundEvents.BLOCK_WOODEN_BUTTON_CLICK_ON);
     public static final WoodType BLACK_MANGROVE_WOOD_TYPE = new WoodType("black_mangrove", BLACK_MANGROVE_BLOCK_SET_TYPE);
     public static final WoodType COCONUT_WOOD_TYPE = new WoodType("coconut", COCONUT_BLOCK_SET_TYPE);
+    public static final WoodType AMARANTH_WOOD_TYPE = new WoodType("amaranth", AMARANTH_BLOCK_SET_TYPE);
     //Doors
     public static final Block BLACK_MANGROVE_TRAPDOOR = new TrapdoorBlock(trapdoorSettings, BLACK_MANGROVE_BLOCK_SET_TYPE);
     public static final Block BLACK_MANGROVE_DOOR = new DoorBlock(doorSettings, BLACK_MANGROVE_BLOCK_SET_TYPE);
     public static final Block COCONUT_TRAPDOOR = new TrapdoorBlock(trapdoorSettings, COCONUT_BLOCK_SET_TYPE);
     public static final Block COCONUT_DOOR = new DoorBlock(doorSettings, COCONUT_BLOCK_SET_TYPE);
+    public static final Block AMARANTH_TRAPDOOR = new TrapdoorBlock(trapdoorSettings, AMARANTH_BLOCK_SET_TYPE);
+    public static final Block AMARANTH_DOOR = new DoorBlock(doorSettings, AMARANTH_BLOCK_SET_TYPE);
     
     //Redstone
     public static final Block BLACK_MANGROVE_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, pressurePlateSettings, BLACK_MANGROVE_BLOCK_SET_TYPE);
     public static final Block BLACK_MANGROVE_BUTTON = new ButtonBlock(buttonSettings, BLACK_MANGROVE_BLOCK_SET_TYPE, 30, true);
     public static final Block COCONUT_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, pressurePlateSettings, COCONUT_BLOCK_SET_TYPE);
-    public static final Block COCONUT_BUTTON = new ButtonBlock(buttonSettings, COCONUT_BLOCK_SET_TYPE, 30, true);
+    public static final Block COCONUT_BUTTON = new ButtonBlock(buttonSettings, AMARANTH_BLOCK_SET_TYPE, 30, true);
+    public static final Block AMARANTH_PRESSURE_PLATE = new PressurePlateBlock(PressurePlateBlock.ActivationRule.EVERYTHING, pressurePlateSettings, COCONUT_BLOCK_SET_TYPE);
+    public static final Block AMARANTH_BUTTON = new ButtonBlock(buttonSettings, AMARANTH_BLOCK_SET_TYPE, 30, true);
     
     //Signs
     public static final Block BLACK_MANGROVE_WALL_HANGING_SIGN_BLOCK = new BlackMangroveHangingWallSign(wallHangingSignSettings, BLACK_MANGROVE_WOOD_TYPE);
@@ -80,12 +87,17 @@ public class TropicaBlock {
     public static final Block COCONUT_HANGING_SIGN_BLOCK = new CoconutHangingSign(hangingSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_WALL_SIGN = new CoconutWallSign(wallSignSettings, COCONUT_WOOD_TYPE);
     public static final Block COCONUT_SIGN = new CoconutSign(signSettings, COCONUT_WOOD_TYPE);
-    
+    public static final Block AMARANTH_WALL_HANGING_SIGN_BLOCK = new AmaranthHangingWallSign(wallHangingSignSettings, AMARANTH_WOOD_TYPE);
+    public static final Block AMARANTH_HANGING_SIGN_BLOCK = new AmaranthHangingSign(hangingSignSettings, AMARANTH_WOOD_TYPE);
+    public static final Block AMARANTH_WALL_SIGN = new AmaranthWallSign(wallSignSettings, AMARANTH_WOOD_TYPE);
+    public static final Block AMARANTH_SIGN = new AmaranthSign(signSettings, AMARANTH_WOOD_TYPE);
     //Fence
     public static final Block BLACK_MANGROVE_FENCE = new FenceBlock(fenceSettings);
     public static final Block BLACK_MANGROVE_FENCE_GATE = new FenceGateBlock(fenceGateSettings, BLACK_MANGROVE_WOOD_TYPE);
     public static final Block COCONUT_FENCE = new FenceBlock(fenceSettings);
     public static final Block COCONUT_FENCE_GATE = new FenceGateBlock(fenceGateSettings, COCONUT_WOOD_TYPE);
+    public static final Block AMARANTH_FENCE = new FenceBlock(fenceSettings);
+    public static final Block AMARANTH_FENCE_GATE = new FenceGateBlock(fenceGateSettings, AMARANTH_WOOD_TYPE);
     
     //Logs
     public static final Block BLACK_MANGROVE_LOG = new PillarBlock(logSettings);
@@ -93,12 +105,16 @@ public class TropicaBlock {
     public static final Block COCONUT_LOG = new PillarBlock(logSettings);
     public static final Block COCONUT_SHEATH = new PillarBlock(logSettings);
     public static final Block STRIPPED_COCONUT_LOG = new PillarBlock(strippedLogSettings);
+    public static final Block AMARANTH_LOG = new PillarBlock(logSettings);
+    public static final Block STRIPPED_AMARANTH_LOG = new PillarBlock(strippedLogSettings);
     //Wood
     public static final Block BLACK_MANGROVE_WOOD = new PillarBlock(woodSettings);
     public static final Block STRIPPED_BLACK_MANGROVE_WOOD = new PillarBlock(strippedWoodSettings);
     public static final Block COCONUT_WOOD = new PillarBlock(woodSettings);
     public static final Block COCONUT_SHEATH_WOOD = new PillarBlock(woodSettings);
     public static final Block STRIPPED_COCONUT_WOOD = new PillarBlock(strippedWoodSettings);
+    public static final Block AMARANTH_WOOD = new PillarBlock(woodSettings);
+    public static final Block STRIPPED_AMARANTH_WOOD = new PillarBlock(strippedWoodSettings);
     //Planks, Slabs, Stairs
     public static final Block BLACK_MANGROVE_PLANKS = new Block(planksSettings);
     public static final Block BLACK_MANGROVE_SLAB = new SlabBlock(slabSettings);
@@ -106,12 +122,18 @@ public class TropicaBlock {
     public static final Block COCONUT_PLANKS = new Block(planksSettings);
     public static final Block COCONUT_SLAB = new SlabBlock(slabSettings);
     public static final Block COCONUT_STAIRS = new StairsBlock(defaultStairState, stairsSettings);
+    public static final Block AMARANTH_PLANKS = new Block(planksSettings);
+    public static final Block AMARANTH_SLAB = new SlabBlock(slabSettings);
+    public static final Block AMARANTH_STAIRS = new StairsBlock(defaultStairState, stairsSettings);
     
     //Leaves, Saplings
     public static final Block BLACK_MANGROVE_LEAVES = new Block(leavesSettings);
     public static final Block BLACK_MANGROVE_PROPAGULE = new PropaguleBlock(FabricBlockSettings.copyOf(Blocks.MANGROVE_PROPAGULE));
     public static final Block COCONUT_LEAVES = new Block(leavesSettings);
     public static final Block COCONUT_SHOOT = new PropaguleBlock(FabricBlockSettings.copyOf(Blocks.ACACIA_SAPLING));
+    public static final Block AMARANTH_LEAVES = new Block(leavesSettings);
+    public static final Block AMARANTH_SAPLING = new SaplingBlock(new AcaciaSaplingGenerator(), FabricBlockSettings.copyOf(Blocks.ACACIA_SAPLING));
+    
     //Etc
     public static final Block BLACK_MANGROVE_KNEES = new Block(FabricBlockSettings.copyOf(Blocks.MANGROVE_ROOTS).nonOpaque());
     public static final Block BROWN_COCONUT_BLOCK = new Block(FabricBlockSettings.copyOf(Blocks.PUMPKIN));
@@ -122,6 +144,7 @@ public class TropicaBlock {
     public static final Block COCONUT_1 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
     public static final Block COCONUT_2 = new Block(FabricBlockSettings.copyOf(Blocks.COCOA));
     //sand
+    public static final Block WHITE_SAND = new SandBlock(0, FabricBlockSettings.copyOf(Blocks.SAND).mapColor(DyeColor.WHITE));
     public static final Block BLACK_SAND = new SandBlock(1, FabricBlockSettings.copyOf(Blocks.SAND).mapColor(DyeColor.BLACK));
     public static final Block BLACK_SANDSTONE = new Block(FabricBlockSettings.copyOf(Blocks.SANDSTONE).mapColor(DyeColor.BLACK));
     public static final Block BLACK_SANDSTONE_STAIRS = new StairsBlock(defaultStairState, FabricBlockSettings.copyOf(Blocks.SANDSTONE_STAIRS).mapColor(DyeColor.BLACK));
@@ -151,6 +174,7 @@ public class TropicaBlock {
     public static void registerWoodTypes() {
         WoodTypeMixin.invokeRegister(COCONUT_WOOD_TYPE);
         WoodTypeMixin.invokeRegister(BLACK_MANGROVE_WOOD_TYPE);
+        WoodTypeMixin.invokeRegister(AMARANTH_WOOD_TYPE);
     }
     
     public static void setFlammability(ArrayList<Block> arrayList, Block referenceBlock) {
@@ -160,7 +184,8 @@ public class TropicaBlock {
             FlammableBlockRegistry.getDefaultInstance().add(block, burnChance, spreadChance);
         }
     }
-    public static void registerBlocksFlammability(){
+    
+    public static void registerBlocksFlammability() {
         setFlammability(woodenBlocks, Blocks.OAK_PLANKS);
         setFlammability(nonBurningWoodenBlocks, Blocks.OAK_BUTTON);
         setFlammability(logBlocks, Blocks.OAK_LOG);
@@ -173,6 +198,7 @@ public class TropicaBlock {
         setFlammability(stoneBlocks, Blocks.SANDSTONE);
         setFlammability(sandBlocks, Blocks.SAND);
     }
+    
     public static void registerModBlocks() {
         //TREE STUFF
         //Doors
@@ -188,6 +214,12 @@ public class TropicaBlock {
         registerBlock("coconut_door",
                 COCONUT_DOOR,
                 woodenBlocks);
+        registerBlock("amaranth_trapdoor",
+                AMARANTH_TRAPDOOR,
+                woodenBlocks);
+        registerBlock("amaranth_door",
+                AMARANTH_DOOR,
+                woodenBlocks);
         //Redstone
         registerBlock("black_mangrove_pressure_plate",
                 BLACK_MANGROVE_PRESSURE_PLATE,
@@ -200,6 +232,12 @@ public class TropicaBlock {
                 nonBurningWoodenBlocks);
         registerBlock("coconut_button",
                 COCONUT_BUTTON,
+                nonBurningWoodenBlocks);
+        registerBlock("amaranth_pressure_plate",
+                AMARANTH_PRESSURE_PLATE,
+                nonBurningWoodenBlocks);
+        registerBlock("amaranth_button",
+                AMARANTH_BUTTON,
                 nonBurningWoodenBlocks);
         //Signs
         registerBlock("black_mangrove_sign",
@@ -226,6 +264,18 @@ public class TropicaBlock {
         registerBlock("coconut_wall_hanging_sign",
                 COCONUT_WALL_HANGING_SIGN_BLOCK,
                 nonBurningWoodenBlocks);
+        registerBlock("amaranth_sign",
+                AMARANTH_SIGN,
+                nonBurningWoodenBlocks);
+        registerBlock("amaranth_wall_sign",
+                AMARANTH_WALL_SIGN,
+                nonBurningWoodenBlocks);
+        registerBlock("amaranth_hanging_sign",
+                AMARANTH_HANGING_SIGN_BLOCK,
+                nonBurningWoodenBlocks);
+        registerBlock("amaranth_wall_hanging_sign",
+                AMARANTH_WALL_HANGING_SIGN_BLOCK,
+                nonBurningWoodenBlocks);
         //Fence
         registerBlock("black_mangrove_fence",
                 BLACK_MANGROVE_FENCE,
@@ -238,6 +288,12 @@ public class TropicaBlock {
                 woodenBlocks);
         registerBlock("coconut_fence_gate",
                 COCONUT_FENCE_GATE,
+                woodenBlocks);
+        registerBlock("amaranth_fence",
+                AMARANTH_FENCE,
+                woodenBlocks);
+        registerBlock("amaranth_fence_gate",
+                AMARANTH_FENCE_GATE,
                 woodenBlocks);
         //Log
         registerBlock("black_mangrove_log",
@@ -255,6 +311,12 @@ public class TropicaBlock {
         registerBlock("stripped_coconut_log",
                 STRIPPED_COCONUT_LOG,
                 logBlocks);
+        registerBlock("amaranth_log",
+                AMARANTH_LOG,
+                logBlocks);
+        registerBlock("stripped_amaranth_log",
+                STRIPPED_AMARANTH_LOG,
+                logBlocks);
         //Wood
         registerBlock("black_mangrove_wood",
                 BLACK_MANGROVE_WOOD,
@@ -270,6 +332,12 @@ public class TropicaBlock {
                 highlyFlammableWoodenBlocks);
         registerBlock("stripped_coconut_wood",
                 STRIPPED_COCONUT_WOOD,
+                logBlocks);
+        registerBlock("amaranth_wood",
+                AMARANTH_WOOD,
+                logBlocks);
+        registerBlock("stripped_amaranth_wood",
+                STRIPPED_AMARANTH_WOOD,
                 logBlocks);
         //Planks/Slabs/Stairs
         registerBlock("black_mangrove_planks",
@@ -290,6 +358,15 @@ public class TropicaBlock {
         registerBlock("coconut_stairs",
                 COCONUT_STAIRS,
                 woodenBlocks);
+        registerBlock("amaranth_planks",
+                AMARANTH_PLANKS,
+                woodenBlocks);
+        registerBlock("amaranth_slab",
+                AMARANTH_SLAB,
+                woodenBlocks);
+        registerBlock("amaranth_stairs",
+                AMARANTH_STAIRS,
+                woodenBlocks);
         //Leaves/saplings
         registerBlock("black_mangrove_leaves",
                 BLACK_MANGROVE_LEAVES,
@@ -302,6 +379,12 @@ public class TropicaBlock {
                 leavesBlocks);
         registerBlock("coconut_shoot",
                 COCONUT_SHOOT,
+                saplingBlocks);
+        registerBlock("amaranth_leaves",
+                AMARANTH_LEAVES,
+                leavesBlocks);
+        registerBlock("amaranth_sapling",
+                AMARANTH_SAPLING,
                 saplingBlocks);
         //Tree ETC
         registerBlock("black_mangrove_knees",
@@ -329,6 +412,9 @@ public class TropicaBlock {
                 COCONUT_2,
                 plantBlocks);
         // Sand & sandstone
+        registerBlock("white_sand",
+                WHITE_SAND,
+                sandBlocks);
         registerBlock("black_sand",
                 BLACK_SAND,
                 sandBlocks);
@@ -389,7 +475,6 @@ public class TropicaBlock {
                 coralFans);
     }
     
-    @SuppressWarnings("UnstableApiUsage")
     public static void registerCreativePlacements() {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.BUILDING_BLOCKS).register(content -> {
             content.addAfter(Items.JUNGLE_BUTTON, COCONUT_LOG);
@@ -407,6 +492,19 @@ public class TropicaBlock {
             content.addAfter(COCONUT_DOOR, COCONUT_TRAPDOOR);
             content.addAfter(COCONUT_TRAPDOOR, COCONUT_PRESSURE_PLATE);
             content.addAfter(COCONUT_PRESSURE_PLATE, COCONUT_BUTTON);
+            content.addAfter(COCONUT_BUTTON, AMARANTH_LOG);
+            content.addAfter(AMARANTH_LOG, AMARANTH_WOOD);
+            content.addAfter(AMARANTH_WOOD, STRIPPED_AMARANTH_LOG);
+            content.addAfter(STRIPPED_AMARANTH_LOG, STRIPPED_AMARANTH_WOOD);
+            content.addAfter(STRIPPED_AMARANTH_WOOD, AMARANTH_PLANKS);
+            content.addAfter(AMARANTH_PLANKS, AMARANTH_STAIRS);
+            content.addAfter(AMARANTH_STAIRS, AMARANTH_SLAB);
+            content.addAfter(AMARANTH_SLAB, AMARANTH_FENCE);
+            content.addAfter(AMARANTH_FENCE, AMARANTH_FENCE_GATE);
+            content.addAfter(AMARANTH_FENCE_GATE, AMARANTH_DOOR);
+            content.addAfter(AMARANTH_DOOR, AMARANTH_TRAPDOOR);
+            content.addAfter(AMARANTH_TRAPDOOR, AMARANTH_PRESSURE_PLATE);
+            content.addAfter(AMARANTH_PRESSURE_PLATE, AMARANTH_BUTTON);
             content.addAfter(Items.DARK_OAK_BUTTON, BLACK_MANGROVE_LOG);
             content.addAfter(BLACK_MANGROVE_LOG, BLACK_MANGROVE_WOOD);
             content.addAfter(BLACK_MANGROVE_WOOD, STRIPPED_BLACK_MANGROVE_LOG);
@@ -432,14 +530,17 @@ public class TropicaBlock {
             content.addAfter(CUT_BLACK_SANDSTONE, CUT_BLACK_SANDSTONE_SLAB);
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(content -> {
-            content.addAfter(Items.RED_SANDSTONE, BLACK_SAND);
+            content.addAfter(Items.RED_SANDSTONE, WHITE_SAND);
+            content.addAfter(WHITE_SAND, BLACK_SAND);
             content.addAfter(BLACK_SAND, BLACK_SANDSTONE);
             content.addAfter(Items.JUNGLE_LOG, COCONUT_SHEATH);
             content.addAfter(COCONUT_SHEATH, COCONUT_LOG);
             content.addAfter(Items.JUNGLE_LEAVES, COCONUT_LEAVES);
+            content.addAfter(COCONUT_LEAVES, AMARANTH_LEAVES);
             content.addAfter(Items.DARK_OAK_LOG, BLACK_MANGROVE_LOG);
             content.addAfter(Items.DARK_OAK_LEAVES, BLACK_MANGROVE_LEAVES);
             content.addAfter(Items.JUNGLE_SAPLING, TropicaItem.COCONUT);
+            content.addAfter(TropicaItem.COCONUT, AMARANTH_SAPLING);
             content.addAfter(Items.DARK_OAK_SAPLING, BLACK_MANGROVE_PROPAGULE);
             content.addAfter(Items.HANGING_ROOTS, TropicaBlock.COCONUT_TUFT);
             content.addAfter(Items.WET_SPONGE, TropicaItem.GREEN_COCONUT_BLOCK);
@@ -455,6 +556,8 @@ public class TropicaBlock {
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
             content.addAfter(Items.JUNGLE_HANGING_SIGN, COCONUT_SIGN);
             content.addAfter(COCONUT_SIGN, COCONUT_HANGING_SIGN_BLOCK);
+            content.addAfter(COCONUT_HANGING_SIGN_BLOCK, AMARANTH_SIGN);
+            content.addAfter(AMARANTH_SIGN, AMARANTH_HANGING_SIGN_BLOCK);
             content.addAfter(Items.DARK_OAK_HANGING_SIGN, BLACK_MANGROVE_SIGN);
             content.addAfter(BLACK_MANGROVE_SIGN, BLACK_MANGROVE_HANGING_SIGN_BLOCK);
         });

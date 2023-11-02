@@ -42,6 +42,11 @@ public class TropicaClient implements ClientModInitializer {
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_WALL_SIGN_ENTITY, SignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_HANGING_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
 		BlockEntityRendererFactories.register(TropicaBlockEntity.BLACK_MANGROVE_HANGING_WALL_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
+	
+		BlockEntityRendererFactories.register(TropicaBlockEntity.AMARANTH_SIGN_ENTITY, SignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(TropicaBlockEntity.AMARANTH_WALL_SIGN_ENTITY, SignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(TropicaBlockEntity.AMARANTH_HANGING_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
+		BlockEntityRendererFactories.register(TropicaBlockEntity.AMARANTH_HANGING_WALL_SIGN_ENTITY, HangingSignBlockEntityRenderer::new);
 	}
 
 	public void registerEntityRenderers() {
@@ -61,9 +66,14 @@ public class TropicaClient implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_LEAVES, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_PROPAGULE, RenderLayer.getCutout());
 		
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.AMARANTH_LEAVES, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.AMARANTH_SAPLING, RenderLayer.getCutout());
+		
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_DOOR, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_TRAPDOOR, RenderLayer.getTranslucent());
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_DOOR, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.AMARANTH_DOOR, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.AMARANTH_TRAPDOOR, RenderLayer.getCutout());
 		
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.COCONUT_TUFT, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(TropicaBlock.BLACK_MANGROVE_KNEES, RenderLayer.getCutout());
@@ -79,5 +89,7 @@ public class TropicaClient implements ClientModInitializer {
 	public void registerColorProviders() {
 		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x92c648, TropicaBlock.BLACK_MANGROVE_LEAVES);
 		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92c648, TropicaItem.BLACK_MANGROVE_LEAVES);
+		ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> 0x92c648, TropicaBlock.AMARANTH_LEAVES);
+		ColorProviderRegistry.ITEM.register((stack, tintIndex) -> 0x92c648, TropicaItem.AMARANTH_LEAVES);
 	}
 }
