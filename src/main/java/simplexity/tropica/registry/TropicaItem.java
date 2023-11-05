@@ -109,7 +109,15 @@ public class TropicaItem {
     public static final Item HAMMER_CORAL = new BlockItem(TropicaBlock.HAMMER_CORAL, fullStackItem);
     public static final Item DEAD_HAMMER_CORAL_FAN = new BlockItem(TropicaBlock.DEAD_HAMMER_CORAL_FAN, fullStackItem);
     public static final Item HAMMER_CORAL_FAN = new BlockItem(TropicaBlock.HAMMER_CORAL_FAN, fullStackItem);
-    
+    //Plants
+    public static final Item TROPICAL_BUSH = new BlockItem(TropicaBlock.TROPICAL_BUSH, fullStackItem);
+    public static final Item LARGE_TROPICAL_BUSH = new BlockItem(TropicaBlock.LARGE_TROPICAL_BUSH, fullStackItem);
+    public static final Item BEACH_GRASS = new BlockItem(TropicaBlock.BEACH_GRASS, fullStackItem);
+    public static final Item TALL_BEACH_GRASS = new BlockItem(TropicaBlock.TALL_BEACH_GRASS, fullStackItem);
+    public static final Item HELICONIA = new BlockItem(TropicaBlock.HELICONIA, fullStackItem);
+    public static final Item POISONOUS_VINE = new BlockItem(TropicaBlock.POISONOUS_VINE, fullStackItem);
+    public static final Item RED_HIBISCUS = new BlockItem(TropicaBlock.RED_HIBISCUS, fullStackItem);
+    public static final Item WHITE_HIBISCUS = new BlockItem(TropicaBlock.WHITE_HIBISCUS, fullStackItem);
     private static void registerItem(String name, Item item) {
         Registry.register(Registries.ITEM, new Identifier(tropica, name), item);
     }
@@ -206,6 +214,15 @@ public class TropicaItem {
         registerItem("hammer_coral", HAMMER_CORAL);
         registerItem("dead_hammer_coral_fan", DEAD_HAMMER_CORAL_FAN);
         registerItem("hammer_coral_fan", HAMMER_CORAL_FAN);
+        //plants
+        registerItem("tropical_bush", TROPICAL_BUSH);
+        registerItem("large_tropical_bush", LARGE_TROPICAL_BUSH);
+        registerItem("heliconia", HELICONIA);
+        registerItem("poisonous_vine", POISONOUS_VINE);
+        registerItem("red_hibiscus", RED_HIBISCUS);
+        registerItem("white_hibiscus", WHITE_HIBISCUS);
+        registerItem("beach_grass", BEACH_GRASS);
+        registerItem("tall_beach_grass", TALL_BEACH_GRASS);
     }
     
     

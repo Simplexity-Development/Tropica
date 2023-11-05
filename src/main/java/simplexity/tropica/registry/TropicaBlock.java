@@ -165,6 +165,15 @@ public class TropicaBlock {
     public static final Block HAMMER_CORAL_FAN = new CoralFanBlock(DEAD_HAMMER_CORAL_FAN, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_FAN));
     public static final Block DEAD_HAMMER_CORAL_WALL_FAN = new DeadCoralWallFanBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BRAIN_CORAL_WALL_FAN));
     public static final Block HAMMER_CORAL_WALL_FAN = new CoralWallFanBlock(DEAD_HAMMER_CORAL_WALL_FAN, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_WALL_FAN));
+    //Plants
+    public static final Block TROPICAL_BUSH = new FernBlock(FabricBlockSettings.copyOf(Blocks.FERN));
+    public static final Block LARGE_TROPICAL_BUSH = new FernBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
+    public static final Block BEACH_GRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS));
+    public static final Block TALL_BEACH_GRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
+    public static final Block HELICONIA = new TallFlowerBlock(FabricBlockSettings.copyOf(Blocks.ROSE_BUSH));
+    public static final Block POISONOUS_VINE = new VineBlock(FabricBlockSettings.copyOf(Blocks.VINE));
+    public static final Block RED_HIBISCUS = new PlantBlock(FabricBlockSettings.copyOf(Blocks.POPPY));
+    public static final Block WHITE_HIBISCUS = new PlantBlock(FabricBlockSettings.copyOf(Blocks.POPPY));
     
     private static void registerBlock(String name, Block block, ArrayList<Block> arrayList) {
         Registry.register(Registries.BLOCK, new Identifier(tropica, name), block);
@@ -473,6 +482,30 @@ public class TropicaBlock {
         registerBlock("hammer_coral_wall_fan",
                 HAMMER_CORAL_WALL_FAN,
                 coralFans);
+        registerBlock("tropical_bush",
+                TROPICAL_BUSH,
+                plantBlocks);
+        registerBlock("large_tropical_bush",
+                LARGE_TROPICAL_BUSH,
+                plantBlocks);
+        registerBlock("beach_grass",
+                BEACH_GRASS,
+                plantBlocks);
+        registerBlock("tall_beach_grass",
+                TALL_BEACH_GRASS,
+                plantBlocks);
+        registerBlock("heliconia",
+                HELICONIA,
+                plantBlocks);
+        registerBlock("poisonous_vine",
+                POISONOUS_VINE,
+                plantBlocks);
+        registerBlock("red_hibiscus",
+                RED_HIBISCUS,
+                plantBlocks);
+        registerBlock("white_hibiscus",
+                WHITE_HIBISCUS,
+                plantBlocks);
     }
     
     public static void registerCreativePlacements() {
@@ -552,6 +585,16 @@ public class TropicaBlock {
             content.addAfter(Items.DEAD_BRAIN_CORAL, DEAD_HAMMER_CORAL);
             content.addAfter(Items.HORN_CORAL_FAN, HAMMER_CORAL_FAN);
             content.addAfter(Items.DEAD_HORN_CORAL_FAN, DEAD_HAMMER_CORAL_FAN);
+            content.addAfter(Items.TORCHFLOWER, WHITE_HIBISCUS);
+            content.addAfter(WHITE_HIBISCUS, RED_HIBISCUS);
+            content.addAfter(Items.PITCHER_PLANT, HELICONIA);
+            content.addAfter(Items.GRASS, BEACH_GRASS);
+            content.addAfter(Items.FERN, TROPICAL_BUSH);
+            content.addAfter(Items.TALL_GRASS, TALL_BEACH_GRASS);
+            content.addAfter(Items.LARGE_FERN, LARGE_TROPICAL_BUSH);
+            content.addAfter(Items.VINE, POISONOUS_VINE);
+            
+            
         });
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL).register(content -> {
             content.addAfter(Items.JUNGLE_HANGING_SIGN, COCONUT_SIGN);

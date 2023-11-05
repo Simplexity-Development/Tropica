@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "tropica:block/heliconia_bottom"
+    },
+    "half=upper": {
+      "model": "tropica:block/heliconia_top"
+    }
+  }
+}

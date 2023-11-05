@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "tropica:block/large_tropical_bush_top"
+  }
+}
