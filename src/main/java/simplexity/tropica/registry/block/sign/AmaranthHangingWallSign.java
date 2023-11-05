@@ -1,4 +1,4 @@
-package simplexity.tropica.registry.block;
+package simplexity.tropica.registry.block.sign;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.WallHangingSignBlock;

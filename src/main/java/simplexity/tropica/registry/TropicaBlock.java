@@ -15,7 +15,7 @@ import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import simplexity.tropica.Tropica;
 import simplexity.tropica.mixin.WoodTypeMixin;
-import simplexity.tropica.registry.block.*;
+import simplexity.tropica.registry.block.sign.*;
 
 import java.util.ArrayList;
 
@@ -167,7 +167,7 @@ public class TropicaBlock {
     public static final Block HAMMER_CORAL_WALL_FAN = new CoralWallFanBlock(DEAD_HAMMER_CORAL_WALL_FAN, FabricBlockSettings.copyOf(Blocks.BRAIN_CORAL_WALL_FAN));
     //Plants
     public static final Block TROPICAL_BUSH = new FernBlock(FabricBlockSettings.copyOf(Blocks.FERN));
-    public static final Block LARGE_TROPICAL_BUSH = new FernBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
+    public static final Block LARGE_TROPICAL_BUSH = new TallPlantBlock(FabricBlockSettings.copyOf(Blocks.LARGE_FERN));
     public static final Block BEACH_GRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS));
     public static final Block TALL_BEACH_GRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
     public static final Block HELICONIA = new TallFlowerBlock(FabricBlockSettings.copyOf(Blocks.ROSE_BUSH));

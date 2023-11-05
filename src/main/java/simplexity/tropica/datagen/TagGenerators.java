@@ -49,7 +49,7 @@ public class TagGenerators extends FabricTagProvider.BlockTagProvider {
     private static final TagKey<Block> MINEABLE_HOE = TagKey.of(RegistryKeys.BLOCK, new Identifier("minecraft:mineable/hoe"));
     private static final TagKey<Block> COCONUT_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier("tropica:coconut_logs"));
     private static final TagKey<Block> BLACK_MANGROVE_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier("tropica:black_mangrove_logs"));
-    
+    private static final TagKey<Block> AMARANTH_LOGS = TagKey.of(RegistryKeys.BLOCK, new Identifier("tropica:amaranth_logs"));
     public TagGenerators(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
         super(output, registriesFuture);
     }
@@ -66,6 +66,11 @@ public class TagGenerators extends FabricTagProvider.BlockTagProvider {
                 .add(TropicaBlock.STRIPPED_BLACK_MANGROVE_LOG)
                 .add(TropicaBlock.BLACK_MANGROVE_WOOD)
                 .add(TropicaBlock.STRIPPED_BLACK_MANGROVE_WOOD);
+        getOrCreateTagBuilder(AMARANTH_LOGS)
+                .add(TropicaBlock.AMARANTH_LOG)
+                .add(TropicaBlock.STRIPPED_AMARANTH_LOG)
+                .add(TropicaBlock.AMARANTH_WOOD)
+                .add(TropicaBlock.STRIPPED_AMARANTH_WOOD);
         getOrCreateTagBuilder(CEILING_HANGING_SIGNS)
                 .add(TropicaBlock.BLACK_MANGROVE_HANGING_SIGN_BLOCK)
                 .add(TropicaBlock.COCONUT_HANGING_SIGN_BLOCK);
