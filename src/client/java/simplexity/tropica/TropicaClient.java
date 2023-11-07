@@ -92,7 +92,8 @@ public class TropicaClient implements ClientModInitializer {
 		getCutOutOfBlock(TropicaBlock.RED_HIBISCUS);
 		getCutOutOfBlock(TropicaBlock.TROPICAL_BUSH);
 		getCutOutOfBlock(TropicaBlock.LARGE_TROPICAL_BUSH);
-		getCutOutOfBlock(TropicaBlock.POISONOUS_VINE);
+		getCutOutOfBlock(TropicaBlock.POISONOUS_VINES);
+		getCutOutOfBlock(TropicaBlock.POISONOUS_VINES_PLANT);
 		getCutOutOfBlock(TropicaBlock.HELICONIA);
 	}
 	

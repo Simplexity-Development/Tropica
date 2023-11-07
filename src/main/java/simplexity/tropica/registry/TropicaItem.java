@@ -115,7 +115,7 @@ public class TropicaItem {
     public static final Item BEACH_GRASS = new BlockItem(TropicaBlock.BEACH_GRASS, fullStackItem);
     public static final Item TALL_BEACH_GRASS = new BlockItem(TropicaBlock.TALL_BEACH_GRASS, fullStackItem);
     public static final Item HELICONIA = new BlockItem(TropicaBlock.HELICONIA, fullStackItem);
-    public static final Item POISONOUS_VINE = new BlockItem(TropicaBlock.POISONOUS_VINE, fullStackItem);
+    public static final Item POISONOUS_VINES = new BlockItem(TropicaBlock.POISONOUS_VINES, fullStackItem);
     public static final Item RED_HIBISCUS = new BlockItem(TropicaBlock.RED_HIBISCUS, fullStackItem);
     public static final Item WHITE_HIBISCUS = new BlockItem(TropicaBlock.WHITE_HIBISCUS, fullStackItem);
     private static void registerItem(String name, Item item) {
@@ -218,7 +218,7 @@ public class TropicaItem {
         registerItem("tropical_bush", TROPICAL_BUSH);
         registerItem("large_tropical_bush", LARGE_TROPICAL_BUSH);
         registerItem("heliconia", HELICONIA);
-        registerItem("poisonous_vine", POISONOUS_VINE);
+        registerItem("poisonous_vines", POISONOUS_VINES);
         registerItem("red_hibiscus", RED_HIBISCUS);
         registerItem("white_hibiscus", WHITE_HIBISCUS);
         registerItem("beach_grass", BEACH_GRASS);

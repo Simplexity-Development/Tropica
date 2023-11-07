@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "tropica:item/poisonous_vine"
+    "layer0": "tropica:item/poisonous_vines"
   }
 }

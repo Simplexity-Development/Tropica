@@ -171,7 +171,8 @@ public class TropicaBlock {
     public static final Block BEACH_GRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.GRASS));
     public static final Block TALL_BEACH_GRASS = new GrassBlock(FabricBlockSettings.copyOf(Blocks.TALL_GRASS));
     public static final Block HELICONIA = new TallFlowerBlock(FabricBlockSettings.copyOf(Blocks.ROSE_BUSH));
-    public static final Block POISONOUS_VINE = new VineBlock(FabricBlockSettings.copyOf(Blocks.VINE));
+    public static final Block POISONOUS_VINES = new CaveVinesHeadBlock(FabricBlockSettings.copyOf(Blocks.CAVE_VINES));
+    public static final Block POISONOUS_VINES_PLANT = new CaveVinesBodyBlock(FabricBlockSettings.copyOf(Blocks.CAVE_VINES_PLANT));
     public static final Block RED_HIBISCUS = new PlantBlock(FabricBlockSettings.copyOf(Blocks.POPPY));
     public static final Block WHITE_HIBISCUS = new PlantBlock(FabricBlockSettings.copyOf(Blocks.POPPY));
     
@@ -497,8 +498,11 @@ public class TropicaBlock {
         registerBlock("heliconia",
                 HELICONIA,
                 plantBlocks);
-        registerBlock("poisonous_vine",
-                POISONOUS_VINE,
+        registerBlock("poisonous_vines",
+                POISONOUS_VINES,
+                plantBlocks);
+        registerBlock("poisonous_vines_plant",
+                POISONOUS_VINES_PLANT,
                 plantBlocks);
         registerBlock("red_hibiscus",
                 RED_HIBISCUS,
@@ -592,7 +596,7 @@ public class TropicaBlock {
             content.addAfter(Items.FERN, TROPICAL_BUSH);
             content.addAfter(Items.TALL_GRASS, TALL_BEACH_GRASS);
             content.addAfter(Items.LARGE_FERN, LARGE_TROPICAL_BUSH);
-            content.addAfter(Items.VINE, POISONOUS_VINE);
+            content.addAfter(Items.VINE, POISONOUS_VINES);
             
             
         });
